@@ -12,6 +12,6 @@ public interface CRUDDAO<E, K> {
 
     void update(E entity);
 
-    void delete(E entity);
+    boolean delete(E entity);
 
 }

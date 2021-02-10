@@ -58,7 +58,6 @@ public class OrderDAOImpl implements OrderDAO {
                 }
             }
         }
-
     }
 
     @Override
@@ -90,7 +89,7 @@ public class OrderDAOImpl implements OrderDAO {
                 double price = resultSet.getDouble("price");
                 double discount = resultSet.getDouble("discount");
                 int timeToWait = resultSet.getInt("timeToWait");
-                Date data = resultSet.getDate("date");
+                Data data = (Data) resultSet.getDate("date");
 
                 order = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
                         discount, timeToWait, data);
@@ -139,7 +138,7 @@ public class OrderDAOImpl implements OrderDAO {
                 Date data = rs.getDate("date");
 
                 Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
-                        discount, timeToWait, data);
+                        discount, timeToWait, (Data) data);
                 orders.add(ord);
             }
 
@@ -155,6 +154,16 @@ public class OrderDAOImpl implements OrderDAO {
             }
         }
         return orders;
+    }
+
+    @Override
+    public void update(Order entity) {
+
+    }
+
+    @Override
+    public boolean delete(Order entity) {
+        return false;
     }
 
     @Override

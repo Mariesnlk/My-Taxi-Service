@@ -32,7 +32,7 @@ public class Order {
         this.data = data;
     }
 
-    public Order(Integer id, String addressFrom, String addressTo, int passengersNumber, String autoCategory,
+    public Order(Integer id, String addressFrom, String addressTo, int passengersNumber,
                  Integer passengersID, Integer autoID, double price, double discount, int timeToWait, Data data) {
         this.id = id;
         this.addressFrom = addressFrom;
