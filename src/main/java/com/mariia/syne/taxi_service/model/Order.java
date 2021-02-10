@@ -1,6 +1,7 @@
 package com.mariia.syne.taxi_service.model;
 
 import javax.xml.crypto.Data;
+import java.sql.Date;
 
 public class Order {
 
@@ -16,8 +17,6 @@ public class Order {
     private int timeToWait;
     private Data data;
 
-    public Order() {
-    }
 
     public Order(String addressFrom, String addressTo, int passengersNumber, String autoCategory, Integer passengersID,
                  Integer autoID, double price, double discount, int timeToWait, Data data) {
@@ -48,7 +47,7 @@ public class Order {
         this.data = data;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
