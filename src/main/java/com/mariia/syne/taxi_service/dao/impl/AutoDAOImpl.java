@@ -129,26 +129,17 @@ public class AutoDAOImpl implements AutoDAO {
     }
 
     @Override
-    public void update(Auto entity) {
-
-    }
-
-    @Override
-    public boolean delete(Auto entity) {
-        return false;
-    }
-
-    @Override
-    public Auto updateAutoById(Integer idAuto, Auto newAuto) {
+    public void update(Auto auto) {
         DBHelper objectDBHelper = new DBHelper();
         Connection connection = objectDBHelper.getConnection();
 
         PreparedStatement ps = null;
         try {
 
-            int newPassengersCapacity = newAuto.getPassengersCapacity();
-            String newCategory = newAuto.getCategory();
-            String newStatus = newAuto.getStatus();
+            Integer id = auto.getAutoId();
+            int newPassengersCapacity = auto.getPassengersCapacity();
+            String newCategory = auto.getCategory();
+            String newStatus = auto.getStatus();
 
             String query =
                     "UPDATE auto SET passengersCapacity  = '" + newPassengersCapacity + "', category = '" + newCategory + "', " +
@@ -156,7 +147,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             ps = connection.prepareStatement(query);
 
-            ps.setInt(1, idAuto);
+            ps.setInt(1, id);
 
             ps.executeUpdate();
 
@@ -171,11 +162,10 @@ public class AutoDAOImpl implements AutoDAO {
                 }
             }
         }
-        return newAuto;
     }
 
     @Override
-    public boolean deleteAutoById(Integer idAuto) {
+    public boolean delete(Auto auto) {
         boolean result = false;
         int changedRowsNumber = 0;
 
@@ -184,9 +174,11 @@ public class AutoDAOImpl implements AutoDAO {
 
         PreparedStatement ps = null;
         try {
+            Integer id = auto.getAutoId();
+
             String query = "DELETE FROM auto WHERE idAuto = ?";
             ps = connection.prepareStatement(query);
-            ps.setInt(1, idAuto);
+            ps.setInt(1, id);
 
             //System.out.println(ps);
             changedRowsNumber = ps.executeUpdate();
