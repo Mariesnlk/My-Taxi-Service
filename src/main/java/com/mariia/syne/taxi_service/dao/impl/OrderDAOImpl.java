@@ -4,7 +4,6 @@ import com.mariia.syne.taxi_service.dao.interf.OrderDAO;
 import com.mariia.syne.taxi_service.database.DBHelper;
 import com.mariia.syne.taxi_service.model.Order;
 
-import javax.xml.crypto.Data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
