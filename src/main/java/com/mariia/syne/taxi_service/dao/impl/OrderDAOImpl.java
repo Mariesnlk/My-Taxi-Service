@@ -83,7 +83,7 @@ public class OrderDAOImpl implements OrderDAO {
                 //int idOrder= resultSet.getInt("id");
                 String addressFrom = resultSet.getString("addressFrom");
                 String addressTo = resultSet.getString("addressTo");
-                Integer passengersNumber = resultSet.getInt("passengersNumber");
+                int passengersNumber = resultSet.getInt("passengersNumber");
                 Integer passengersId = resultSet.getInt("passengersId");
                 int autoId = resultSet.getInt("autoId");
                 double price = resultSet.getDouble("price");
@@ -157,32 +157,23 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public void update(Order entity) {
-
-    }
-
-    @Override
-    public boolean delete(Order entity) {
-        return false;
-    }
-
-    @Override
-    public Order updateOrder(Integer idOrder, Order newOrder) {
+    public void update(Order order) {
         DBHelper objectDBHelper = new DBHelper();
         Connection connection = objectDBHelper.getConnection();
 
         PreparedStatement ps = null;
         try {
 
-            String newAddressFrom = newOrder.getAddressFrom();
-            String newAddressTo = newOrder.getAddressTo();
-            int newPassengersNumber = newOrder.getPassengersNumber();
-            Integer newPassengersId = newOrder.getPassengersID();
-            Integer newAutoId = newOrder.getAutoID();
-            double newPrice = newOrder.getPrice();
-            double newDiscount = newOrder.getDiscount();
-            int newTimeToWait = newOrder.getTimeToWait();
-            Date newDate = (Date) newOrder.getData();
+            Integer id = order.getId();
+            String newAddressFrom = order.getAddressFrom();
+            String newAddressTo = order.getAddressTo();
+            int newPassengersNumber = order.getPassengersNumber();
+            Integer newPassengersId = order.getPassengersID();
+            Integer newAutoId = order.getAutoID();
+            double newPrice = order.getPrice();
+            double newDiscount = order.getDiscount();
+            int newTimeToWait = order.getTimeToWait();
+            Date newDate = (Date) order.getData();
 
             String query =
                     "UPDATE orders SET addressFrom  = '" + newAddressFrom + "', addressTo = '" + newAddressTo + "', " +
@@ -192,7 +183,7 @@ public class OrderDAOImpl implements OrderDAO {
 
             ps = connection.prepareStatement(query);
 
-            ps.setInt(1, idOrder);
+            ps.setInt(1, id);
 
             ps.executeUpdate();
 
@@ -207,11 +198,10 @@ public class OrderDAOImpl implements OrderDAO {
                 }
             }
         }
-        return newOrder;
     }
 
     @Override
-    public boolean deleteOrderById(Integer idOrder) {
+    public boolean delete(Order order) {
         boolean result = false;
         int changedRowsNumber = 0;
 
@@ -220,9 +210,12 @@ public class OrderDAOImpl implements OrderDAO {
 
         PreparedStatement ps = null;
         try {
+
+            Integer id = order.getId();
+
             String query = "DELETE FROM orders WHERE idOrder = ?";
             ps = connection.prepareStatement(query);
-            ps.setInt(1, idOrder);
+            ps.setInt(1, id);
 
             //System.out.println(ps);
             changedRowsNumber = ps.executeUpdate();
