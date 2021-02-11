@@ -15,11 +15,11 @@ public class Order {
     private double price;
     private double discount;
     private int timeToWait;
-    private Data data;
+    private Date data;
 
 
     public Order(String addressFrom, String addressTo, int passengersNumber, String autoCategory, Integer passengersID,
-                 Integer autoID, double price, double discount, int timeToWait, Data data) {
+                 Integer autoID, double price, double discount, int timeToWait, Date data) {
         this.addressFrom = addressFrom;
         this.addressTo = addressTo;
         this.passengersNumber = passengersNumber;
@@ -32,8 +32,8 @@ public class Order {
         this.data = data;
     }
 
-    public Order(Integer id, String addressFrom, String addressTo, int passengersNumber,
-                 Integer passengersID, Integer autoID, double price, double discount, int timeToWait, Data data) {
+    public Order(Integer id, String addressFrom, String addressTo, int passengersNumber, String autoCategory,
+                 Integer passengersID, Integer autoID, double price, double discount, int timeToWait, Date data) {
         this.id = id;
         this.addressFrom = addressFrom;
         this.addressTo = addressTo;
@@ -127,11 +127,11 @@ public class Order {
         this.timeToWait = timeToWait;
     }
 
-    public Data getData() {
+    public Date getDate() {
         return data;
     }
 
-    public void setData(Data data) {
+    public void setData(Date data) {
         this.data = data;
     }
 

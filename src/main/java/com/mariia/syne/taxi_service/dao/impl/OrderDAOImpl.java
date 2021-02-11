@@ -23,27 +23,29 @@ public class OrderDAOImpl implements OrderDAO {
             String addressFrom = order.getAddressFrom();
             String addressTo = order.getAddressTo();
             int passengersNumber = order.getPassengersNumber();
+            String autoCategory = order.getAutoCategory();
             Integer passengersId = order.getPassengersID();
             Integer autoId = order.getPassengersID();
             double price = order.getPrice();
             double discount = order.getDiscount();
             int timeToWait = order.getTimeToWait();
-            Data date = order.getData();
+            Date date = order.getDate();
 
-            String query = "INSERT INTO taxi_servise_db.order(addressFrom, addressTo, passengersNumber," +
-                    "passengersId, autoId,  price, discount,  timeToWait, date) VALUES(?,?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO taxi_servise_db.order(addressFrom, addressTo, passengersNumber, autoCategory," +
+                    "passengersId, autoId,  price, discount,  timeToWait, date) VALUES(?,?,?,?,?,?,?,?,?,?)";
 
             ps = connection.prepareStatement(query);
 
             ps.setString(1, addressFrom);
             ps.setString(2, addressTo);
             ps.setInt(3, passengersNumber);
-            ps.setInt(4, passengersId);
-            ps.setInt(5, autoId);
-            ps.setDouble(6, price);
-            ps.setDouble(7, discount);
-            ps.setInt(8, timeToWait);
-            ps.setDate(9, (Date) date);
+            ps.setString(4,  autoCategory );
+            ps.setInt(5, passengersId);
+            ps.setInt(6, autoId);
+            ps.setDouble(7, price);
+            ps.setDouble(8, discount);
+            ps.setInt(9, timeToWait);
+            ps.setDate(10, date);
 
             ps.executeUpdate();
 
@@ -84,14 +86,15 @@ public class OrderDAOImpl implements OrderDAO {
                 String addressFrom = resultSet.getString("addressFrom");
                 String addressTo = resultSet.getString("addressTo");
                 int passengersNumber = resultSet.getInt("passengersNumber");
+                String autoCategory = resultSet.getString("autoCategory");
                 Integer passengersId = resultSet.getInt("passengersId");
                 int autoId = resultSet.getInt("autoId");
                 double price = resultSet.getDouble("price");
                 double discount = resultSet.getDouble("discount");
                 int timeToWait = resultSet.getInt("timeToWait");
-                Data data = (Data) resultSet.getDate("date");
+                Date data = resultSet.getDate("date");
 
-                order = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                order = new Order(idOrder, addressFrom, addressTo, passengersNumber, autoCategory,  passengersId, autoId, price,
                         discount, timeToWait, data);
             }
 
@@ -130,6 +133,7 @@ public class OrderDAOImpl implements OrderDAO {
                 String addressFrom = rs.getString("addressFrom");
                 String addressTo = rs.getString("addressTo");
                 int passengersNumber = rs.getInt("passengersNumber");
+                String autoCategory = rs.getString("autoCategory");
                 Integer passengersId = rs.getInt("passengersId");
                 Integer autoId = rs.getInt("autoId");
                 double price = rs.getDouble("price");
@@ -137,8 +141,8 @@ public class OrderDAOImpl implements OrderDAO {
                 int timeToWait = rs.getInt("timeToWait");
                 Date data = rs.getDate("date");
 
-                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
-                        discount, timeToWait, (Data) data);
+                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, autoCategory, passengersId, autoId, price,
+                        discount, timeToWait, data);
                 orders.add(ord);
             }
 
@@ -168,16 +172,17 @@ public class OrderDAOImpl implements OrderDAO {
             String newAddressFrom = order.getAddressFrom();
             String newAddressTo = order.getAddressTo();
             int newPassengersNumber = order.getPassengersNumber();
+            String newAutoCategory = order.getAutoCategory();
             Integer newPassengersId = order.getPassengersID();
             Integer newAutoId = order.getAutoID();
             double newPrice = order.getPrice();
             double newDiscount = order.getDiscount();
             int newTimeToWait = order.getTimeToWait();
-            Date newDate = (Date) order.getData();
+            Date newDate = order.getDate();
 
             String query =
-                    "UPDATE orders SET addressFrom  = '" + newAddressFrom + "', addressTo = '" + newAddressTo + "', " +
-                            "passengersNumber = '" + newPassengersNumber + "', passengersId = '" + newPassengersId + "', " +
+                    "UPDATE orders SET addressFrom  = '" + newAddressFrom + "',  addressTo = '" + newAddressTo + "', " +
+                            "passengersNumber = '" + newPassengersNumber + "', + passengersId = '" + newPassengersId + "', " +
                             "autoId = '" + newAutoId + "' , " + "price = '" + newPrice + "' ," + "discount = '" + newDiscount +
                             "', " + "timeToWait = '" + newTimeToWait + "', " + "data '" + newDate + "' WHERE id = ?";
 
