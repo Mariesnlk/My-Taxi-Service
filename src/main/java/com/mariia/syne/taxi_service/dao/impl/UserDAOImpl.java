@@ -141,28 +141,20 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void update(User entity) {
+    public void update(User user) {
 
-    }
-
-    @Override
-    public boolean delete(User entity) {
-        return false;
-    }
-
-    @Override
-    public User updateUserById(Integer idUser, User newUser) {
         DBHelper objectDBHelper = new DBHelper();
         Connection connection = objectDBHelper.getConnection();
 
         PreparedStatement ps = null;
         try {
 
-            String newFirstName = newUser.getFirstName();
-            String newLastName = newUser.getLastName();
-            String newLogin = newUser.getLogin();
-            String newPassword = newUser.getPassword();
-            String newRole = newUser.getRole();
+            Integer id = user.getId();
+            String newFirstName = user.getFirstName();
+            String newLastName = user.getLastName();
+            String newLogin = user.getLogin();
+            String newPassword = user.getPassword();
+            String newRole = user.getRole();
 
             String query =
                     "UPDATE user SET firstName  = '" + newFirstName + "', lastName = '" + newLastName + "', " +
@@ -171,7 +163,7 @@ public class UserDAOImpl implements UserDAO {
 
             ps = connection.prepareStatement(query);
 
-            ps.setInt(1, idUser);
+            ps.setInt(1, id);
 
             ps.executeUpdate();
 
@@ -186,12 +178,10 @@ public class UserDAOImpl implements UserDAO {
                 }
             }
         }
-        return newUser;
-
     }
 
     @Override
-    public boolean deleteUserById(Integer idUser) {
+    public boolean delete(User user) {
         boolean result = false;
         int changedRowsNumber = 0;
 
@@ -200,9 +190,11 @@ public class UserDAOImpl implements UserDAO {
 
         PreparedStatement ps = null;
         try {
+            Integer id = user.getId();
+
             String query = "DELETE FROM user WHERE idUser = ?";
             ps = connection.prepareStatement(query);
-            ps.setInt(1, idUser);
+            ps.setInt(1, id);
 
             //System.out.println(ps);
             changedRowsNumber = ps.executeUpdate();
