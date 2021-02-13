@@ -40,9 +40,13 @@ public class Main {
 //        User user = new User("FName7", "LName7", "login7", "password7", "ADMIN");
 //        userDAO.create(user);
 
-        UserDAO userDAO = new UserDAOImpl();
-        List<User> allUsers = userDAO.findAll();
-        System.out.println("users" + allUsers);
+//        UserDAO userDAO = new UserDAOImpl();
+//        List<User> allUsers = userDAO.findAll();
+//        System.out.println("users" + allUsers);
+
+        AutoDAO autoDAO = new AutoDAOImpl();
+        List<Auto> allAutos = autoDAO.findAll();
+        System.out.println(allAutos);
 
     }
 }

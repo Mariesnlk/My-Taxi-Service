@@ -23,7 +23,7 @@ public class AutoDAOImpl implements AutoDAO {
             String category = auto.getCategory();
             String status = auto.getStatus();
 
-            String query = "INSERT INTO taxi_servise_db.auto(passengersCapacity, category, status) VALUES(?,?,?)";
+            String query = "INSERT INTO taxi_servise_db.auto(passangersCapacity, category, status) VALUES(?,?,?)";
 
             ps = connection.prepareStatement(query);
 
@@ -67,7 +67,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             while (resultSet.next()) {
                 //int idOrder= resultSet.getInt("id");
-                int passengersCapacity = resultSet.getInt("passengersCapacity");
+                int passengersCapacity = resultSet.getInt("passangersCapacity");
                 String category = resultSet.getString("category");
                 String status = resultSet.getString("status");
 
@@ -99,14 +99,14 @@ public class AutoDAOImpl implements AutoDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT * FROM autoList";
+            String query = "SELECT * FROM auto";
             ps = connection.prepareStatement(query);
 
             rs = ps.executeQuery();
 
             while (rs.next()) {
                 Integer idAuto = rs.getInt("id");
-                int passengersCapacity = rs.getInt("passengersCapacity");
+                int passengersCapacity = rs.getInt("passangersCapacity");
                 String category = rs.getString("category");
                 String status = rs.getString("status");
 
@@ -142,7 +142,7 @@ public class AutoDAOImpl implements AutoDAO {
             String newStatus = auto.getStatus();
 
             String query =
-                    "UPDATE auto SET passengersCapacity  = '" + newPassengersCapacity + "', category = '" + newCategory + "', " +
+                    "UPDATE auto SET passangersCapacity  = '" + newPassengersCapacity + "', category = '" + newCategory + "', " +
                             "status = '" + newStatus + "' WHERE id = ?";
 
             ps = connection.prepareStatement(query);

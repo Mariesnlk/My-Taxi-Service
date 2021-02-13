@@ -23,13 +23,16 @@
 </p>
 
 <p>
+    <input type=button onClick="location.href='/users'" value='Users'>
+</p>
+
+<p>
     <input type=button onClick="location.href='/autos'" value='Autos'>
 </p>
 
 <p>
-    <input type=button onClick="location.href='/users'" value='Users'>
+    <input type=button onClick="location.href='/add-auto'" value='Add Auto'>
 </p>
-
 
 </body>
 </html>

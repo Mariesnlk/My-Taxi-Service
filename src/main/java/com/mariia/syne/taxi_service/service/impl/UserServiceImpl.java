@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(User entity) {
+    public void update(User user) {
 
     }
 
