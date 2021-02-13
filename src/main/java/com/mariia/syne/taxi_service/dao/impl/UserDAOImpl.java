@@ -109,7 +109,7 @@ public class UserDAOImpl implements UserDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT * FROM userList";
+            String query = "SELECT * FROM user";
             ps = connection.prepareStatement(query);
 
             rs = ps.executeQuery();

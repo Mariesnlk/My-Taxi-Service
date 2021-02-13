@@ -10,6 +10,8 @@ import com.mariia.syne.taxi_service.model.Auto;
 import com.mariia.syne.taxi_service.model.Order;
 import com.mariia.syne.taxi_service.model.User;
 
+import java.util.List;
+
 
 public class Main {
 
@@ -30,14 +32,17 @@ public class Main {
 //        orderDAO.create(order);
 
 
-        AutoDAO autoDAO = new AutoDAOImpl();
-        Auto auto = new Auto(2, "COMFORT", "ACTIVE");
-        autoDAO.create(auto);
+//        AutoDAO autoDAO = new AutoDAOImpl();
+//        Auto auto = new Auto(2, "COMFORT", "ACTIVE");
+//        autoDAO.create(auto);
 
 //        UserDAO userDAO = new UserDAOImpl();
-//        User user = new User("FName6", "LName6", "login6", "password6", "CLIENT");
+//        User user = new User("FName7", "LName7", "login7", "password7", "ADMIN");
 //        userDAO.create(user);
 
+        UserDAO userDAO = new UserDAOImpl();
+        List<User> allUsers = userDAO.findAll();
+        System.out.println("users" + allUsers);
 
     }
 }
