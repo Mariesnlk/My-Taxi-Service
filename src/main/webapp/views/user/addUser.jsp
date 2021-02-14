@@ -12,11 +12,11 @@
 </head>
 <body>
 <div>
-    <%--<%
+    <%
         if (request.getAttribute("lastName") != null) {
             out.println("<p>User '" + request.getAttribute("lastName") + "' added!</p>");
         }
-    %>--%>
+    %>
     <div>
         <div>
             <h2>Add user</h2>

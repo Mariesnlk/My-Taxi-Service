@@ -30,8 +30,14 @@ public class AddUserServlet extends HttpServlet {
 
         User user = new User(firstName, lastName, login, password, role);
 
-        UserService userService = new UserServiceImpl();
-        userService.create(user);
+        if (firstName.length() > 0 && lastName.length() > 0) {
+            UserService userService = new UserServiceImpl();
+            userService.create(user);
+
+            request.setAttribute("lastName", lastName);
+        }
+
+        doGet(request, response);
     }
 
 }

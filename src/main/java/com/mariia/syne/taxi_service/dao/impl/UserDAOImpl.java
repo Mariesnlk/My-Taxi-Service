@@ -66,7 +66,7 @@ public class UserDAOImpl implements UserDAO {
 
         try {
 
-            String query = "SELECT * FROM user WHERE idUser = ?";
+            String query = "SELECT * FROM user WHERE id = ?";
             ps = connection.prepareStatement(query);
 
             ps.setString(1, String.valueOf(idUser));
@@ -192,7 +192,7 @@ public class UserDAOImpl implements UserDAO {
         try {
             Integer id = user.getId();
 
-            String query = "DELETE FROM user WHERE idUser = ?";
+            String query = "DELETE FROM user WHERE id = ?";
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
 

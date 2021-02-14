@@ -73,7 +73,7 @@ public class OrderDAOImpl implements OrderDAO {
 
         try {
 
-            String query = "SELECT * FROM orders WHERE idOrder = ?";
+            String query = "SELECT * FROM order WHERE id= ?";
             ps = connection.prepareStatement(query);
 
             ps.setString(1, String.valueOf(idOrder));
@@ -122,7 +122,7 @@ public class OrderDAOImpl implements OrderDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT * FROM orders";
+            String query = "SELECT * FROM order";
             ps = connection.prepareStatement(query);
 
             rs = ps.executeQuery();
@@ -180,7 +180,7 @@ public class OrderDAOImpl implements OrderDAO {
             Date newDate = order.getDate();
 
             String query =
-                    "UPDATE orders SET addressFrom  = '" + newAddressFrom + "',  addressTo = '" + newAddressTo + "', " +
+                    "UPDATE order SET addressFrom  = '" + newAddressFrom + "',  addressTo = '" + newAddressTo + "', " +
                             "passengersNumber = '" + newPassengersNumber + "', + passengersId = '" + newPassengersId + "', " +
                             "autoId = '" + newAutoId + "' , " + "price = '" + newPrice + "' ," + "discount = '" + newDiscount +
                             "', " + "timeToWait = '" + newTimeToWait + "', " + "data '" + newDate + "' WHERE id = ?";
@@ -217,7 +217,7 @@ public class OrderDAOImpl implements OrderDAO {
 
             Integer id = order.getId();
 
-            String query = "DELETE FROM orders WHERE idOrder = ?";
+            String query = "DELETE FROM order WHERE id = ?";
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
 

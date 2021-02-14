@@ -58,7 +58,7 @@ public class AutoDAOImpl implements AutoDAO {
 
         try {
 
-            String query = "SELECT * FROM auto WHERE idAuto = ?";
+            String query = "SELECT * FROM auto WHERE id = ?";
             ps = connection.prepareStatement(query);
 
             ps.setString(1, String.valueOf(idAuto));
@@ -176,7 +176,7 @@ public class AutoDAOImpl implements AutoDAO {
         try {
             Integer id = auto.getAutoId();
 
-            String query = "DELETE FROM auto WHERE idAuto = ?";
+            String query = "DELETE FROM auto WHERE id = ?";
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
 
