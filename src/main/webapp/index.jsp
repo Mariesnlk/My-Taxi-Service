@@ -34,5 +34,13 @@
     <input type=button onClick="location.href='/add-auto'" value='Add Auto'>
 </p>
 
+<p>
+    <input type=button onClick="location.href='/orders'" value='Orders'>
+</p>
+
+<p>
+    <input type=button onClick="location.href='/add-order'" value='Add Order'>
+</p>
+
 </body>
 </html>

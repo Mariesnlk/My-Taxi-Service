@@ -1,6 +1,5 @@
 package com.mariia.syne.taxi_service.model;
 
-import javax.xml.crypto.Data;
 import java.sql.Date;
 
 public class Order {
