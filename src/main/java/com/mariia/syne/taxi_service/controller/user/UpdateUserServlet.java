@@ -30,5 +30,19 @@ public class UpdateUserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        Integer idUser = Integer.parseInt(request.getParameter("id"));
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        String role = request.getParameter("role");
+
+        User updatedUser = new User(idUser, firstName, lastName, login, password, role);
+        UserService userService = new UserServiceImpl();
+
+        userService.update(updatedUser);
+
+        response.sendRedirect("/users");
+
     }
 }

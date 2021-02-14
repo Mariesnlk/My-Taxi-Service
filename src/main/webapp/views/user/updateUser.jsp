@@ -5,7 +5,6 @@
   Time: 11:59
   To change this template use File | Settings | File Templates.
 --%>
-Денис Харьков, [14.02.21 12:04]
 <%@ page import="com.mariia.syne.taxi_service.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -36,15 +35,15 @@
         <form method="post">
             <table>
                 <tr>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"id\" value=\"" + userToUpdate.getId() + "\" hidden>");
-                        %>
-                    </td>
                     <td>FirstName:</td>
                     <td>
                         <%
                             out.println("<input type=\"text\" name=\"firstName\" value=\"" + userToUpdate.getFirstName() + "\">");
+                        %>
+                    </td>
+                    <td>
+                        <%
+                            out.println("<input type=\"text\" name=\"id\" value=\"" + userToUpdate.getId() + "\" hidden>");
                         %>
                     </td>
                 </tr>
