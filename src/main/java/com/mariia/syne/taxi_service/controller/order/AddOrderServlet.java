@@ -26,15 +26,14 @@ public class AddOrderServlet extends HttpServlet {
         String addressFrom = request.getParameter("addressFrom");
         String addressTo = request.getParameter("addressTo");
         int passengersNumber = Integer.parseInt(request.getParameter("passengersNumber"));
-        String autoCategory = request.getParameter("autoCategory");
         Integer passengersID = Integer.valueOf(request.getParameter("passengersID"));
         Integer autoID = Integer.valueOf(request.getParameter("autoID"));
         double price = Double.parseDouble(request.getParameter("price"));
         double discount = Double.parseDouble(request.getParameter("discount"));
         int timeToWait = Integer.parseInt(request.getParameter("timeToWait"));
-        Date data = Date.valueOf(request.getParameter("data"));//?
+        Date data = Date.valueOf(request.getParameter("date"));//?
 
-        Order order = new Order(addressFrom, addressTo, passengersNumber, autoCategory, passengersID, autoID, price,
+        Order order = new Order(addressFrom, addressTo, passengersNumber, passengersID, autoID, price,
                 discount, timeToWait, data);
 
         OrderService orderService = new OrderServiceImpl();

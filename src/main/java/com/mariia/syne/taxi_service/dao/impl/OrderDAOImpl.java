@@ -22,7 +22,6 @@ public class OrderDAOImpl implements OrderDAO {
             String addressFrom = order.getAddressFrom();
             String addressTo = order.getAddressTo();
             int passengersNumber = order.getPassengersNumber();
-            String autoCategory = order.getAutoCategory();
             Integer passengersId = order.getPassengersID();
             Integer autoId = order.getPassengersID();
             double price = order.getPrice();
@@ -30,21 +29,20 @@ public class OrderDAOImpl implements OrderDAO {
             int timeToWait = order.getTimeToWait();
             Date date = order.getDate();
 
-            String query = "INSERT INTO taxi_servise_db.order(addressFrom, addressTo, passengersNumber, autoCategory," +
-                    "passengersId, autoId,  price, discount,  timeToWait, date) VALUES(?,?,?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO taxi_servise_db.order(addressFrom, addressTo, passengersNumber, " +
+                    "passengersId, autoId,  price, discount,  timeToWait, date) VALUES(?,?,?,?,?,?,?,?,?)";
 
             ps = connection.prepareStatement(query);
 
             ps.setString(1, addressFrom);
             ps.setString(2, addressTo);
             ps.setInt(3, passengersNumber);
-            ps.setString(4,  autoCategory );
-            ps.setInt(5, passengersId);
-            ps.setInt(6, autoId);
-            ps.setDouble(7, price);
-            ps.setDouble(8, discount);
-            ps.setInt(9, timeToWait);
-            ps.setDate(10, date);
+            ps.setInt(4, passengersId);
+            ps.setInt(5, autoId);
+            ps.setDouble(6, price);
+            ps.setDouble(7, discount);
+            ps.setInt(8, timeToWait);
+            ps.setDate(9, date);
 
             ps.executeUpdate();
 
@@ -73,7 +71,7 @@ public class OrderDAOImpl implements OrderDAO {
 
         try {
 
-            String query = "SELECT * FROM order WHERE id= ?";
+            String query = "SELECT * FROM taxi_servise_db.order WHERE id= ?";
             ps = connection.prepareStatement(query);
 
             ps.setString(1, String.valueOf(idOrder));
@@ -81,20 +79,19 @@ public class OrderDAOImpl implements OrderDAO {
             resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                //int idOrder= resultSet.getInt("id");
+                //Integer idOrder= resultSet.getInt("id");
                 String addressFrom = resultSet.getString("addressFrom");
                 String addressTo = resultSet.getString("addressTo");
                 int passengersNumber = resultSet.getInt("passengersNumber");
-                String autoCategory = resultSet.getString("autoCategory");
                 Integer passengersId = resultSet.getInt("passengersId");
                 int autoId = resultSet.getInt("autoId");
                 double price = resultSet.getDouble("price");
                 double discount = resultSet.getDouble("discount");
                 int timeToWait = resultSet.getInt("timeToWait");
-                Date data = resultSet.getDate("date");
+                Date date = resultSet.getDate("date");
 
-                order = new Order(idOrder, addressFrom, addressTo, passengersNumber, autoCategory,  passengersId, autoId, price,
-                        discount, timeToWait, data);
+                order = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                        discount, timeToWait, date);
             }
 
         } catch (Exception e) {
@@ -122,7 +119,7 @@ public class OrderDAOImpl implements OrderDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT * FROM order";
+            String query = "SELECT * FROM taxi_servise_db.order";
             ps = connection.prepareStatement(query);
 
             rs = ps.executeQuery();
@@ -132,16 +129,15 @@ public class OrderDAOImpl implements OrderDAO {
                 String addressFrom = rs.getString("addressFrom");
                 String addressTo = rs.getString("addressTo");
                 int passengersNumber = rs.getInt("passengersNumber");
-                String autoCategory = rs.getString("autoCategory");
                 Integer passengersId = rs.getInt("passengersId");
                 Integer autoId = rs.getInt("autoId");
                 double price = rs.getDouble("price");
                 double discount = rs.getDouble("discount");
                 int timeToWait = rs.getInt("timeToWait");
-                Date data = rs.getDate("date");
+                Date date = rs.getDate("date");
 
-                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, autoCategory, passengersId, autoId, price,
-                        discount, timeToWait, data);
+                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                        discount, timeToWait, date);
                 orders.add(ord);
             }
 
@@ -171,7 +167,6 @@ public class OrderDAOImpl implements OrderDAO {
             String newAddressFrom = order.getAddressFrom();
             String newAddressTo = order.getAddressTo();
             int newPassengersNumber = order.getPassengersNumber();
-            String newAutoCategory = order.getAutoCategory();
             Integer newPassengersId = order.getPassengersID();
             Integer newAutoId = order.getAutoID();
             double newPrice = order.getPrice();
@@ -183,7 +178,7 @@ public class OrderDAOImpl implements OrderDAO {
                     "UPDATE order SET addressFrom  = '" + newAddressFrom + "',  addressTo = '" + newAddressTo + "', " +
                             "passengersNumber = '" + newPassengersNumber + "', + passengersId = '" + newPassengersId + "', " +
                             "autoId = '" + newAutoId + "' , " + "price = '" + newPrice + "' ," + "discount = '" + newDiscount +
-                            "', " + "timeToWait = '" + newTimeToWait + "', " + "data '" + newDate + "' WHERE id = ?";
+                            "', " + "timeToWait = '" + newTimeToWait + "', " + "date '" + newDate + "' WHERE id = ?";
 
             ps = connection.prepareStatement(query);
 

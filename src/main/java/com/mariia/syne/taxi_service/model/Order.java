@@ -8,42 +8,39 @@ public class Order {
     private String addressFrom;
     private String addressTo;
     private int passengersNumber;
-    private String autoCategory;
-    private Integer passengersID;
-    private Integer autoID;
+    private Integer passengersId;
+    private Integer autoId;
     private double price;
     private double discount;
     private int timeToWait;
-    private Date data;
+    private Date date;
 
 
-    public Order(String addressFrom, String addressTo, int passengersNumber, String autoCategory, Integer passengersID,
-                 Integer autoID, double price, double discount, int timeToWait, Date data) {
+    public Order(String addressFrom, String addressTo, int passengersNumber, Integer passengersId,
+                 Integer autoId, double price, double discount, int timeToWait, Date date) {
         this.addressFrom = addressFrom;
         this.addressTo = addressTo;
         this.passengersNumber = passengersNumber;
-        this.autoCategory = autoCategory;
-        this.passengersID = passengersID;
-        this.autoID = autoID;
+        this.passengersId = passengersId;
+        this.autoId = autoId;
         this.price = price;
         this.discount = discount;
         this.timeToWait = timeToWait;
-        this.data = data;
+        this.date = date;
     }
 
-    public Order(Integer id, String addressFrom, String addressTo, int passengersNumber, String autoCategory,
-                 Integer passengersID, Integer autoID, double price, double discount, int timeToWait, Date data) {
+    public Order(Integer id, String addressFrom, String addressTo, int passengersNumber,
+                 Integer passengersId, Integer autoId, double price, double discount, int timeToWait, Date date) {
         this.id = id;
         this.addressFrom = addressFrom;
         this.addressTo = addressTo;
         this.passengersNumber = passengersNumber;
-        this.autoCategory = autoCategory;
-        this.passengersID = passengersID;
-        this.autoID = autoID;
+        this.passengersId = passengersId;
+        this.autoId = autoId;
         this.price = price;
         this.discount = discount;
         this.timeToWait = timeToWait;
-        this.data = data;
+        this.date = date;
     }
 
     public Integer getId() {
@@ -78,28 +75,20 @@ public class Order {
         this.passengersNumber = passengersNumber;
     }
 
-    public String getAutoCategory() {
-        return autoCategory;
-    }
-
-    public void setAutoCategory(String autoCategory) {
-        this.autoCategory = autoCategory;
-    }
-
     public Integer getPassengersID() {
-        return passengersID;
+        return passengersId;
     }
 
     public void setPassengersID(Integer passengersID) {
-        this.passengersID = passengersID;
+        this.passengersId = passengersID;
     }
 
     public Integer getAutoID() {
-        return autoID;
+        return autoId;
     }
 
     public void setAutoID(Integer autoID) {
-        this.autoID = autoID;
+        this.autoId = autoID;
     }
 
     public double getPrice() {
@@ -127,11 +116,11 @@ public class Order {
     }
 
     public Date getDate() {
-        return data;
+        return date;
     }
 
     public void setData(Date data) {
-        this.data = data;
+        this.date = date;
     }
 
     @Override
@@ -141,13 +130,12 @@ public class Order {
                 ", addressFrom='" + addressFrom + '\'' +
                 ", addressTo='" + addressTo + '\'' +
                 ", passengersNumber=" + passengersNumber +
-                ", autoCategory='" + autoCategory + '\'' +
-                ", passengersID=" + passengersID +
-                ", autoID=" + autoID +
+                ", passengersID=" + passengersId +
+                ", autoID=" + autoId +
                 ", price=" + price +
                 ", discount=" + discount +
                 ", timeToWait=" + timeToWait +
-                ", data=" + data +
+                ", data=" + date +
                 '}';
     }
 }
