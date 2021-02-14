@@ -31,7 +31,8 @@ public class AutoServiceImpl implements AutoService {
 
     @Override
     public void update(Auto auto) {
-
+        AutoDAO autoDAO = new AutoDAOImpl();
+        autoDAO.update(auto);
     }
 
     @Override
