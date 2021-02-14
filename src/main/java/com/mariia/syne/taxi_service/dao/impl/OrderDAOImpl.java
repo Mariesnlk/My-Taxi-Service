@@ -23,7 +23,7 @@ public class OrderDAOImpl implements OrderDAO {
             String addressTo = order.getAddressTo();
             int passengersNumber = order.getPassengersNumber();
             Integer passengersId = order.getPassengersID();
-            Integer autoId = order.getPassengersID();
+            Integer autoId = order.getAutoID();
             double price = order.getPrice();
             double discount = order.getDiscount();
             int timeToWait = order.getTimeToWait();
