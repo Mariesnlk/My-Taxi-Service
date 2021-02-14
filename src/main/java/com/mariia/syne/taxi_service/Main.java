@@ -44,13 +44,13 @@ public class Main {
 //        List<User> allUsers = userDAO.findAll();
 //        System.out.println("users" + allUsers);
 
-//        AutoDAO autoDAO = new AutoDAOImpl();
-//        List<Auto> allAutos = autoDAO.findAll();
-//        System.out.println(allAutos);
+        AutoDAO autoDAO = new AutoDAOImpl();
+        List<Auto> allAutos = autoDAO.findAll();
+        System.out.println(allAutos);
 
-        OrderDAO orderDAO = new OrderDAOImpl();
-        List<Order> allOrder = orderDAO.findAll();
-        System.out.println(allOrder);
+//        OrderDAO orderDAO = new OrderDAOImpl();
+//        List<Order> allOrder = orderDAO.findAll();
+//        System.out.println(allOrder);
 
     }
 }

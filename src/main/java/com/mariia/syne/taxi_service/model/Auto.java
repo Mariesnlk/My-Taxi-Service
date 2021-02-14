@@ -2,7 +2,7 @@ package com.mariia.syne.taxi_service.model;
 
 public class Auto {
 
-    private Integer autoId;
+    private Integer id;
     private int passengersCapacity;
     private String category;
     private String status;
@@ -16,19 +16,19 @@ public class Auto {
         this.status = status;
     }
 
-    public Auto(Integer autoId, int passengersCapacity, String category, String status) {
-        this.autoId = autoId;
+    public Auto(Integer id, int passengersCapacity, String category, String status) {
+        this.id = id;
         this.passengersCapacity = passengersCapacity;
         this.category = category;
         this.status = status;
     }
 
-    public Integer getAutoId() {
-        return autoId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setAutoId(Integer autoId) {
-        this.autoId = autoId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getPassengersCapacity() {
@@ -58,7 +58,7 @@ public class Auto {
     @Override
     public String toString() {
         return "Auto{" +
-                "autoId=" + autoId +
+                "autoId=" + id +
                 ", passengersCapacity=" + passengersCapacity +
                 ", category='" + category + '\'' +
                 ", status='" + status + '\'' +

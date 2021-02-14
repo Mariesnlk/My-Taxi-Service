@@ -19,7 +19,7 @@ public class DeleteAutoServlet extends HttpServlet {
     }
 
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer idAuto = Integer.parseInt(request.getParameter("autoId"));
+        Integer idAuto = Integer.parseInt(request.getParameter("id"));
 
         AutoService autoService = new AutoServiceImpl();
         Auto autoToDelete = autoService.findById(idAuto);

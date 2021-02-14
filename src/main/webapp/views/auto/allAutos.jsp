@@ -56,15 +56,15 @@
             <%
                 for (Auto auto : autos) {
                     out.println("<tr>");
-                    out.println("<td><a href=\"/auto?id=" + auto.getAutoId() + "\">"
-                            + auto.getAutoId() + "</a></td>");
+                    out.println("<td><a href=\"/auto?id=" + auto.getId() + "\">"
+                            + auto.getId() + "</a></td>");
                     out.println("<td>" + auto.getPassengersCapacity() + "</td>");
                     out.println("<td>" + auto.getCategory() + "</td>");
                     out.println("<td>" + auto.getStatus() + "</td>");
 
-                    out.println("<td><a href=\"/update-auto?id=" + auto.getAutoId()
+                    out.println("<td><a href=\"/update-auto?id=" + auto.getId()
                             + "\">Update</a></td>");
-                    out.println("<td><a href=\"/delete-auto?id=" + auto.getAutoId()
+                    out.println("<td><a href=\"/delete-auto?id=" + auto.getId()
                             + "\">Delete</a></td>");
                     out.println("</tr>");
                 }

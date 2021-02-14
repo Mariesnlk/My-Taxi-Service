@@ -136,7 +136,7 @@ public class AutoDAOImpl implements AutoDAO {
         PreparedStatement ps = null;
         try {
 
-            Integer id = auto.getAutoId();
+            Integer id = auto.getId();
             int newPassengersCapacity = auto.getPassengersCapacity();
             String newCategory = auto.getCategory();
             String newStatus = auto.getStatus();
@@ -174,7 +174,7 @@ public class AutoDAOImpl implements AutoDAO {
 
         PreparedStatement ps = null;
         try {
-            Integer id = auto.getAutoId();
+            Integer id = auto.getId();
 
             String query = "DELETE FROM auto WHERE id = ?";
             ps = connection.prepareStatement(query);
