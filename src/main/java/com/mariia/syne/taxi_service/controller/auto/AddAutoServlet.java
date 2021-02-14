@@ -1,11 +1,8 @@
 package com.mariia.syne.taxi_service.controller.auto;
 
 import com.mariia.syne.taxi_service.model.Auto;
-import com.mariia.syne.taxi_service.model.User;
 import com.mariia.syne.taxi_service.service.impl.AutoServiceImpl;
-import com.mariia.syne.taxi_service.service.impl.UserServiceImpl;
 import com.mariia.syne.taxi_service.service.interf.AutoService;
-import com.mariia.syne.taxi_service.service.interf.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,7 +28,13 @@ public class AddAutoServlet extends HttpServlet {
 
         Auto auto = new Auto(passengersCapacity, category, status);
 
-        AutoService autoService = new AutoServiceImpl();
-        autoService.create(auto);
+        if (category.length() > 0 && status.length() > 0) {
+            AutoService autoService = new AutoServiceImpl();
+            autoService.create(auto);
+
+            request.setAttribute("category", category);
+        }
+
+        doGet(request, response);
     }
 }
