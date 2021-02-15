@@ -26,7 +26,6 @@
             <label>Address From: </label> <input type="text" name="addressFrom"><br/>
             <label>Address To: </label><input type="text" name="addressTo"><br/>
             <label>Passengers Number: </label><input type="text" name="passengersNumber"><br/>
-            <label>Auto Category: </label><input type="text" name="autoCategory"><br/>
             <label>passengersID: </label><input type="text" name="passengersID"><br/>
             <label>autoID: </label><input type="text" name="autoID"><br/>
             <label>Price: </label><input type="text" name="price"><br/>
