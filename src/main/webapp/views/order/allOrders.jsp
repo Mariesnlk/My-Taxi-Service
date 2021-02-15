@@ -50,7 +50,6 @@
                 <th>addressFrom</th>
                 <th>addressTo</th>
                 <th>passengersNumber</th>
-                <th>autoCategory</th>
                 <th>passengersID</th>
                 <th>autoID</th>
                 <th>price</th>

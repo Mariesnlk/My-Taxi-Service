@@ -10,27 +10,13 @@ import com.mariia.syne.taxi_service.model.Auto;
 import com.mariia.syne.taxi_service.model.Order;
 import com.mariia.syne.taxi_service.model.User;
 
+import java.sql.Date;
 import java.util.List;
 
 
 public class Main {
 
     public static void main(String[] args) {
-//        OrderDAO orderDAO = new OrderDAOImpl();
-//
-//        Order order = new Order("Kyiv",
-//                "Odessa",
-//                2,
-//                "STANDART",
-//                1,
-//                2,
-//                100.5,
-//                12.5,
-//                5,
-//                 null);
-//
-//        orderDAO.create(order);
-
 
 //        AutoDAO autoDAO = new AutoDAOImpl();
 //        Auto auto = new Auto(2, "COMFORT", "ACTIVE");
@@ -48,9 +34,9 @@ public class Main {
 //        List<Auto> allAutos = autoDAO.findAll();
 //        System.out.println(allAutos);
 
-        OrderDAO orderDAO = new OrderDAOImpl();
-        List<Order> allOrder = orderDAO.findAll();
-        System.out.println(allOrder);
+//        OrderDAO orderDAO = new OrderDAOImpl();
+//        List<Order> allOrder = orderDAO.findAll();
+//        System.out.println(allOrder);
 
     }
 }

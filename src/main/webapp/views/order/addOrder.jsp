@@ -31,7 +31,7 @@
             <label>Price: </label><input type="text" name="price"><br/>
             <label>Discount: </label><input type="text" name="discount"><br/>
             <label>Time To Wait: </label><input type="text" name="timeToWait"><br/>
-            <label>Data: </label><input type="text" name="data"><br/>
+            <label>Data: </label><input type="text" name="date"><br/>
             <button type="submit">Submit</button>
         </form>
     </div>

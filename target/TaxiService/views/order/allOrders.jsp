@@ -31,7 +31,7 @@
 <div>
     <input type=button onClick="location.href='../..'" value='Back to main page'>
 
-    <input type=button onClick="location.href='/add-user'" value='Add Order'>
+    <input type=button onClick="location.href='/add-order'" value='Add Order'>
 </div>
 <br>
 <br>
@@ -50,7 +50,6 @@
                 <th>addressFrom</th>
                 <th>addressTo</th>
                 <th>passengersNumber</th>
-                <th>autoCategory</th>
                 <th>passengersID</th>
                 <th>autoID</th>
                 <th>price</th>
@@ -71,7 +70,6 @@
                     out.println("<td>" + order.getAddressFrom() + "</td>");
                     out.println("<td>" + order.getAddressTo() + "</td>");
                     out.println("<td>" + order.getPassengersNumber() + "</td>");
-                    out.println("<td>" + order.getAutoCategory() + "</td>");
                     out.println("<td>" + order.getPassengersID() + "</td>");
                     out.println("<td>" + order.getAutoID() + "</td>");
                     out.println("<td>" + order.getPrice() + "</td>");
@@ -104,7 +102,7 @@
 <div>
     <input type=button onClick="location.href='../..'" value='Back to main page'>
 
-    <input type=button onClick="location.href='/add-user'" value='Add Order'>
+    <input type=button onClick="location.href='/add-order'" value='Add Order'>
 </div>
 
 </body>

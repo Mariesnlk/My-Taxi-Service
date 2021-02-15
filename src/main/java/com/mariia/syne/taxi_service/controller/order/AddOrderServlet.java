@@ -31,10 +31,10 @@ public class AddOrderServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         double discount = Double.parseDouble(request.getParameter("discount"));
         int timeToWait = Integer.parseInt(request.getParameter("timeToWait"));
-        Date data = Date.valueOf(request.getParameter("date"));//?
+        Date date = Date.valueOf(request.getParameter("date"));//?
 
         Order order = new Order(addressFrom, addressTo, passengersNumber, passengersID, autoID, price,
-                discount, timeToWait, data);
+                discount, timeToWait, date);
 
         OrderService orderService = new OrderServiceImpl();
         orderService.create(order);
