@@ -212,7 +212,7 @@ public class OrderDAOImpl implements OrderDAO {
 
             Integer id = order.getId();
 
-            String query = "DELETE FROM order WHERE id = ?";
+            String query = "DELETE FROM taxi_servise_db.order WHERE id = ?";
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
 
