@@ -37,15 +37,16 @@
                     <td>Address From:</td>
                     <td>
                         <%
-                            out.println("<input type=\"text\" name=\"addressFrom\" value=\"" + orderToUpdate.getAddressFrom() + "\">");
+                            out.println("<input type=\"text\" name=\"addressFrom\" value=\"" + orderToUpdate.getAddressFrom()+ "\">");
                         %>
                     </td>
                     <td>
                         <%
-                            out.println("<input type=\"text\" name=\"id\" value=\"" + orderToUpdate.getId()+ "\" hidden>");
+                            out.println("<input type=\"text\" name=\"id\" value=\"" + orderToUpdate.getId() + "\" hidden>");
                         %>
                     </td>
                 </tr>
+
                 <tr>
                     <td>Address To:</td>
                     <td>
@@ -54,6 +55,7 @@
                         %>
                     </td>
                 </tr>
+
                 <tr>
                     <td>Passengers Number:</td>
                     <td>
@@ -62,6 +64,7 @@
                         %>
                     </td>
                 </tr>
+
                 <tr>
                     <td>Passengers Id:</td>
                     <td>
@@ -70,6 +73,7 @@
                         %>
                     </td>
                 </tr>
+
                 <tr>
                     <td>Auto Id:</td>
                     <td>
@@ -78,6 +82,7 @@
                         %>
                     </td>
                 </tr>
+
                 <tr>
                     <td>Price:</td>
                     <td>
@@ -86,28 +91,34 @@
                         %>
                     </td>
                 </tr>
+
                 <tr>
                     <td>Discount:</td>
                     <td>
                         <%
-                            out.println("<input type=\"text\" name=\"discount\" value=\"" + orderToUpdate.getDiscount()+ "\">");
+                            out.println("<input type=\"text\" name=\"discount\" value=\"" + orderToUpdate.getDiscount() + "\">");
                         %>
                     </td>
-                </tr> <tr>
-                <td>Time to wait:</td>
-                <td>
-                    <%
-                        out.println("<input type=\"text\" name=\"timeToWait\" value=\"" + orderToUpdate.getTimeToWait()+ "\">");
-                    %>
-                </td>
-            </tr> <tr>
-                <td>Date:</td>
-                <td>
-                    <%
-                        out.println("<input type=\"text\" name=\"date\" value=\"" + orderToUpdate.getDate()+ "\">");
-                    %>
-                </td>
-            </tr>
+                </tr>
+
+                <tr>
+                    <td>Time to wait:</td>
+                    <td>
+                        <%
+                            out.println("<input type=\"text\" name=\"timeToWait\" value=\"" + orderToUpdate.getTimeToWait() + "\">");
+                        %>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Date:</td>
+                    <td>
+                        <%
+                            out.println("<input type=\"text\" name=\"date\" value=\"" + orderToUpdate.getDate() + "\">");
+                        %>
+                    </td>
+                </tr>
+
                 <tr>
                     <td align="right" colspan="2"><input type="submit" value="Submit"></td>
                 </tr>
