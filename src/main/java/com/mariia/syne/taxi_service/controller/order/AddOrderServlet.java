@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet(name = "AddOrderServlet", urlPatterns = {"/add-order"})
 public class AddOrderServlet extends HttpServlet {
@@ -31,10 +35,20 @@ public class AddOrderServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         double discount = Double.parseDouble(request.getParameter("discount"));
         int timeToWait = Integer.parseInt(request.getParameter("timeToWait"));
-        Date date = Date.valueOf(request.getParameter("date"));//?
+        //Date date = Date.valueOf(request.getParameter("date"));//?
+        String oldDate = request.getParameter("date");
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        Date resultDate = null;
+        try {
+            resultDate = (Date) format.parse(oldDate);
+        } catch (ParseException e) {
+            Logger.getLogger(AddOrderServlet.class.getName()).log(Level.SEVERE, null, e);
+            System.out.println(e);
+        }
+
 
         Order order = new Order(addressFrom, addressTo, passengersNumber, passengersID, autoID, price,
-                discount, timeToWait, date);
+                discount, timeToWait, resultDate);
 
         OrderService orderService = new OrderServiceImpl();
         orderService.create(order);

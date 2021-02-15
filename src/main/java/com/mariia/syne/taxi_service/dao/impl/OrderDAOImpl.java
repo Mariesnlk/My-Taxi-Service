@@ -175,10 +175,10 @@ public class OrderDAOImpl implements OrderDAO {
             Date newDate = order.getDate();
 
             String query =
-                    "UPDATE order SET addressFrom  = '" + newAddressFrom + "',  addressTo = '" + newAddressTo + "', " +
-                            "passengersNumber = '" + newPassengersNumber + "', + passengersId = '" + newPassengersId + "', " +
-                            "autoId = '" + newAutoId + "' , " + "price = '" + newPrice + "' ," + "discount = '" + newDiscount +
-                            "', " + "timeToWait = '" + newTimeToWait + "', " + "date '" + newDate + "' WHERE id = ?";
+                    "UPDATE taxi_servise_db.order SET addressFrom  = '" + newAddressFrom + "',  addressTo = '" + newAddressTo + "', " +
+                            "passengersNumber = '" + newPassengersNumber + "', passengersId = '" + newPassengersId + "', " +
+                            "autoId = '" + newAutoId + "' , price = '" + newPrice + "' , discount = '" + newDiscount +
+                            "', timeToWait = '" + newTimeToWait + "', date '" + newDate + "' WHERE id = ?";
 
             ps = connection.prepareStatement(query);
 
