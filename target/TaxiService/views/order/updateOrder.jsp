@@ -69,7 +69,7 @@
                     <td>Passengers Id:</td>
                     <td>
                         <%
-                            out.println("<input type=\"text\" name=\"passengersId\" value=\"" + orderToUpdate.getPassengersID() + "\">");
+                            out.println("<input type=\"text\" name=\"passengersId\" value=\"" + orderToUpdate.getPassengersId() + "\">");
                         %>
                     </td>
                 </tr>
@@ -78,7 +78,7 @@
                     <td>Auto Id:</td>
                     <td>
                         <%
-                            out.println("<input type=\"text\" name=\"autoId\" value=\"" + orderToUpdate.getAutoID() + "\">");
+                            out.println("<input type=\"text\" name=\"autoId\" value=\"" + orderToUpdate.getAutoId() + "\">");
                         %>
                     </td>
                 </tr>

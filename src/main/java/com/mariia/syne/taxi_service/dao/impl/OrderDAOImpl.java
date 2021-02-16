@@ -30,7 +30,13 @@ public class OrderDAOImpl implements OrderDAO {
             double price = order.getPrice();
             double discount = order.getDiscount();
             int timeToWait = order.getTimeToWait();
-            Date date = order.getDate();
+            //Date date = order.getDate();
+
+            java.util.Date date=order.getDate();
+            java.sql.Date sqlDate=null;
+            if(date!=null) {
+                sqlDate = new java.sql.Date(date.getTime());
+            }
 
             String query = "INSERT INTO taxi_servise_db.order(addressFrom, addressTo, passengersNumber, " +
                     "passengersId, autoId,  price, discount,  timeToWait, date) VALUES(?,?,?,?,?,?,?,?,?)";
@@ -47,7 +53,7 @@ public class OrderDAOImpl implements OrderDAO {
             ps.setDouble(6, price);
             ps.setDouble(7, discount);
             ps.setInt(8, timeToWait);
-            ps.setDate(9, date);
+            ps.setDate(9, sqlDate);
 
             ps.executeUpdate();
 
@@ -96,7 +102,11 @@ public class OrderDAOImpl implements OrderDAO {
                 double price = resultSet.getDouble("price");
                 double discount = resultSet.getDouble("discount");
                 int timeToWait = resultSet.getInt("timeToWait");
-                Date date = resultSet.getDate("date");
+                java.sql.Date sqlDate = resultSet.getDate("date");
+                java.util.Date date = null;
+                if(sqlDate!=null) {
+                    date = new java.util.Date(sqlDate.getTime());
+                }
 
                 order = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
                         discount, timeToWait, date);
@@ -145,7 +155,12 @@ public class OrderDAOImpl implements OrderDAO {
                 double price = rs.getDouble("price");
                 double discount = rs.getDouble("discount");
                 int timeToWait = rs.getInt("timeToWait");
-                Date date = rs.getDate("date");
+                //Date date = rs.getDate("date");
+                java.sql.Date sqlDate = rs.getDate("date");
+                java.util.Date date = null;
+                if(sqlDate!=null) {
+                    date = new java.util.Date(sqlDate.getTime());
+                }
 
                 Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
                         discount, timeToWait, date);
@@ -184,7 +199,12 @@ public class OrderDAOImpl implements OrderDAO {
             double newPrice = order.getPrice();
             double newDiscount = order.getDiscount();
             int newTimeToWait = order.getTimeToWait();
-            Date newDate = order.getDate();
+            //Date newDate = order.getDate();
+            java.util.Date newDate=order.getDate();
+            java.sql.Date newSqlDate=null;
+            if(newDate!=null) {
+                newSqlDate = new java.sql.Date(newDate.getTime());
+            }
 
             String query =
                     "UPDATE taxi_servise_db.order SET addressFrom  = '" + newAddressFrom + "',  addressTo = '" + newAddressTo + "', " +
