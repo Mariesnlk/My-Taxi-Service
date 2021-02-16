@@ -52,5 +52,7 @@ public class AddOrderServlet extends HttpServlet {
 
         OrderService orderService = new OrderServiceImpl();
         orderService.create(order);
+
+        doGet(request, response);
     }
 }

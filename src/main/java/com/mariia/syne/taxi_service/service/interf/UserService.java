@@ -5,5 +5,7 @@ import com.mariia.syne.taxi_service.model.User;
 
 public interface UserService  extends CRUDService<User, Integer> {
 
+    User getRegisteredUser(String userLogin, String userPassword);
+
 }
 

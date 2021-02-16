@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.mariia.syne.taxi_service.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Марія
   Date: 13.02.2021
@@ -12,11 +12,31 @@
 </head>
 <body>
 
-<p>
-    Hello!
-</p>
+<div>
 
-<input type=button onClick="location.href='../..'" value='Back to main page'>
+    <%
+        User registeredUser = (User) session.getAttribute("registeredUser");
+
+        if (registeredUser != null ) {
+            out.println("<p>Success!</p>");
+            out.println(registeredUser);
+            out.println("userRole="+registeredUser.getRole());
+    %>
+    <input type=button onClick="location.href='/logout'" value='Logout'>
+    <input type=button onClick="location.href='../..'" value='Back to main page'>
+    <%
+    }
+
+    else {
+        out.println("<p>Error!</p>");
+
+    %>
+    <input type=button onClick="location.href='/login'" value='Login'>
+    <input type=button onClick="location.href='../..'" value='Back to main page'>
+    <%
+        }
+    %>
+</div>
 
 </body>
 </html>

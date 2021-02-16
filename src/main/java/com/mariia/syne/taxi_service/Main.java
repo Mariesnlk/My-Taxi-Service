@@ -34,9 +34,9 @@ public class Main {
 //        List<Auto> allAutos = autoDAO.findAll();
 //        System.out.println(allAutos);
 
-//        OrderDAO orderDAO = new OrderDAOImpl();
-//        List<Order> allOrder = orderDAO.findAll();
-//        System.out.println(allOrder);
+        OrderDAO orderDAO = new OrderDAOImpl();
+        List<Order> allOrder = orderDAO.findAll();
+        System.out.println(allOrder);
 
     }
 }

@@ -42,4 +42,21 @@ public class UserServiceImpl implements UserService {
         //System.out.println("Delete user: " + result);
         return result;
     }
+
+    @Override
+    public User getRegisteredUser(String userLogin, String userPassword) {
+
+        User registeredUser = null;
+
+        UserDAO userDAO = new UserDAOImpl();
+        List<User> allUsersList = userDAO.findAll();
+
+        for (User user : allUsersList) {
+            if (user.getLogin().equals(userLogin) && user.getPassword().equals(userPassword)) {
+                registeredUser = user;
+                break;
+            }
+        }
+        return registeredUser;
+    }
 }
