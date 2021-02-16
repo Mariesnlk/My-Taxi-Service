@@ -3,6 +3,7 @@ package com.mariia.syne.taxi_service.controller.auto;
 import com.mariia.syne.taxi_service.model.Auto;
 import com.mariia.syne.taxi_service.service.impl.AutoServiceImpl;
 import com.mariia.syne.taxi_service.service.interf.AutoService;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,8 +16,11 @@ import java.io.IOException;
 @WebServlet(name = "AddAutoServlet", urlPatterns = {"/add-auto"})
 public class AddAutoServlet extends HttpServlet {
 
+    private final Logger LOGGER = Logger.getLogger(AddAutoServlet.class);
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/auto/addAuto.jsp");
+        LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);
     }
 
@@ -34,7 +38,7 @@ public class AddAutoServlet extends HttpServlet {
 
             request.setAttribute("category", category);
         }
-
+        LOGGER.info("doPost process");
         doGet(request, response);
     }
 }
