@@ -3,6 +3,7 @@ package com.mariia.syne.taxi_service.controller.user;
 import com.mariia.syne.taxi_service.model.User;
 import com.mariia.syne.taxi_service.service.impl.UserServiceImpl;
 import com.mariia.syne.taxi_service.service.interf.UserService;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,10 @@ import java.io.IOException;
 @WebServlet(name = "DeleteUserServlet", urlPatterns = {"/delete-user"})
 public class DeleteUserServlet extends HttpServlet {
 
+    private final Logger LOGGER = Logger.getLogger(DeleteUserServlet.class);
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        LOGGER.info("doGet process");
         doDelete(request, response);
     }
 

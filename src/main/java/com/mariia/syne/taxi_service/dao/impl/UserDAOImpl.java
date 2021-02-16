@@ -2,8 +2,8 @@ package com.mariia.syne.taxi_service.dao.impl;
 
 import com.mariia.syne.taxi_service.dao.interf.UserDAO;
 import com.mariia.syne.taxi_service.database.DBHelper;
-import com.mariia.syne.taxi_service.model.Auto;
 import com.mariia.syne.taxi_service.model.User;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
+
+    private static final Logger LOG = Logger.getLogger(UserDAOImpl.class);
 
     @Override
     public void create(User user) {
@@ -33,6 +35,8 @@ public class UserDAOImpl implements UserDAO {
 
             ps = connection.prepareStatement(query);
 
+            LOG.debug("Executed query" + query);
+
             ps.setString(1, firstName);
             ps.setString(2, lastName);
             ps.setString(3, login);
@@ -48,7 +52,8 @@ public class UserDAOImpl implements UserDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    System.out.println(e);
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //System.out.println(e);
                 }
             }
         }
@@ -68,6 +73,8 @@ public class UserDAOImpl implements UserDAO {
 
             String query = "SELECT * FROM user WHERE id = ?";
             ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
 
             ps.setString(1, String.valueOf(idUser));
 
@@ -91,7 +98,8 @@ public class UserDAOImpl implements UserDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }
@@ -111,6 +119,8 @@ public class UserDAOImpl implements UserDAO {
 
             String query = "SELECT * FROM user";
             ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
 
             rs = ps.executeQuery();
 
@@ -133,7 +143,8 @@ public class UserDAOImpl implements UserDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }
@@ -163,6 +174,8 @@ public class UserDAOImpl implements UserDAO {
 
             ps = connection.prepareStatement(query);
 
+            LOG.debug("Executed query" + query);
+
             ps.setInt(1, id);
 
             ps.executeUpdate();
@@ -174,7 +187,8 @@ public class UserDAOImpl implements UserDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }
@@ -194,6 +208,9 @@ public class UserDAOImpl implements UserDAO {
 
             String query = "DELETE FROM user WHERE id = ?";
             ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
             ps.setInt(1, id);
 
             //System.out.println(ps);
@@ -211,7 +228,8 @@ public class UserDAOImpl implements UserDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }

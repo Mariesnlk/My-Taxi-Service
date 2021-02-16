@@ -3,12 +3,15 @@ package com.mariia.syne.taxi_service.dao.impl;
 import com.mariia.syne.taxi_service.dao.interf.OrderDAO;
 import com.mariia.syne.taxi_service.database.DBHelper;
 import com.mariia.syne.taxi_service.model.Order;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDAOImpl implements OrderDAO {
+
+    private static final Logger LOG = Logger.getLogger(AutoDAOImpl.class);
 
     @Override
     public void create(Order order) {
@@ -34,6 +37,8 @@ public class OrderDAOImpl implements OrderDAO {
 
             ps = connection.prepareStatement(query);
 
+            LOG.debug("Executed query" + query);
+
             ps.setString(1, addressFrom);
             ps.setString(2, addressTo);
             ps.setInt(3, passengersNumber);
@@ -53,7 +58,8 @@ public class OrderDAOImpl implements OrderDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    System.out.println(e);
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //System.out.println(e);
                 }
             }
         }
@@ -73,6 +79,8 @@ public class OrderDAOImpl implements OrderDAO {
 
             String query = "SELECT * FROM taxi_servise_db.order WHERE id= ?";
             ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
 
             ps.setString(1, String.valueOf(idOrder));
 
@@ -101,7 +109,8 @@ public class OrderDAOImpl implements OrderDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }
@@ -121,6 +130,8 @@ public class OrderDAOImpl implements OrderDAO {
 
             String query = "SELECT * FROM taxi_servise_db.order";
             ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
 
             rs = ps.executeQuery();
 
@@ -148,7 +159,8 @@ public class OrderDAOImpl implements OrderDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }
@@ -182,6 +194,8 @@ public class OrderDAOImpl implements OrderDAO {
 
             ps = connection.prepareStatement(query);
 
+            LOG.debug("Executed query" + query);
+
             ps.setInt(1, id);
 
             ps.executeUpdate();
@@ -193,7 +207,8 @@ public class OrderDAOImpl implements OrderDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }
@@ -214,6 +229,9 @@ public class OrderDAOImpl implements OrderDAO {
 
             String query = "DELETE FROM taxi_servise_db.order WHERE id = ?";
             ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
             ps.setInt(1, id);
 
             //System.out.println(ps);
@@ -231,7 +249,8 @@ public class OrderDAOImpl implements OrderDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }

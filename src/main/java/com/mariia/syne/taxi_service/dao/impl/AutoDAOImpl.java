@@ -3,12 +3,15 @@ package com.mariia.syne.taxi_service.dao.impl;
 import com.mariia.syne.taxi_service.dao.interf.AutoDAO;
 import com.mariia.syne.taxi_service.database.DBHelper;
 import com.mariia.syne.taxi_service.model.Auto;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AutoDAOImpl implements AutoDAO {
+
+    private static final Logger LOG = Logger.getLogger(AutoDAOImpl.class);
 
     @Override
     public void create(Auto auto) {
@@ -27,6 +30,8 @@ public class AutoDAOImpl implements AutoDAO {
 
             ps = connection.prepareStatement(query);
 
+            LOG.debug("Executed query" + query);
+
             ps.setInt(1, passengersCapacity);
             ps.setString(2, category);
             ps.setString(3, status);
@@ -40,7 +45,8 @@ public class AutoDAOImpl implements AutoDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    System.out.println(e);
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //System.out.println(e);
                 }
             }
         }
@@ -60,6 +66,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             String query = "SELECT * FROM auto WHERE id = ?";
             ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
 
             ps.setString(1, String.valueOf(idAuto));
 
@@ -81,7 +88,8 @@ public class AutoDAOImpl implements AutoDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }
@@ -101,6 +109,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             String query = "SELECT * FROM auto";
             ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
 
             rs = ps.executeQuery();
 
@@ -121,7 +130,8 @@ public class AutoDAOImpl implements AutoDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }
@@ -146,6 +156,7 @@ public class AutoDAOImpl implements AutoDAO {
                             "status = '" + newStatus + "' WHERE id = ?";
 
             ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
 
             ps.setInt(1, id);
 
@@ -158,7 +169,8 @@ public class AutoDAOImpl implements AutoDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }
@@ -178,6 +190,8 @@ public class AutoDAOImpl implements AutoDAO {
 
             String query = "DELETE FROM auto WHERE id = ?";
             ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
+
             ps.setInt(1, id);
 
             //System.out.println(ps);
@@ -195,7 +209,8 @@ public class AutoDAOImpl implements AutoDAO {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
                 }
             }
         }

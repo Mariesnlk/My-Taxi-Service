@@ -3,6 +3,7 @@ package com.mariia.syne.taxi_service.controller.user;
 import com.mariia.syne.taxi_service.model.User;
 import com.mariia.syne.taxi_service.service.impl.UserServiceImpl;
 import com.mariia.syne.taxi_service.service.interf.UserService;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,8 +16,11 @@ import java.io.IOException;
 @WebServlet(name = "AddUserServlet", urlPatterns = {"/add-user"})
 public class AddUserServlet extends HttpServlet {
 
+    private final Logger LOGGER = Logger.getLogger(AddUserServlet.class);
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/user/addUser.jsp");
+        LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);
     }
 
@@ -36,7 +40,7 @@ public class AddUserServlet extends HttpServlet {
 
             request.setAttribute("lastName", lastName);
         }
-
+        LOGGER.info("doPost process");
         doGet(request, response);
     }
 
