@@ -26,12 +26,12 @@
             <label>Address From: </label> <input type="text" name="addressFrom"><br/>
             <label>Address To: </label><input type="text" name="addressTo"><br/>
             <label>Passengers Number: </label><input type="text" name="passengersNumber"><br/>
-            <label>passengersID: </label><input type="text" name="passengersID"><br/>
-            <label>autoID: </label><input type="text" name="autoID"><br/>
+            <label>passenger Id: </label><input type="text" name="passengersId"><br/>
+            <label>auto ID: </label><input type="text" name="autoID"><br/>
             <label>Price: </label><input type="text" name="price"><br/>
             <label>Discount: </label><input type="text" name="discount"><br/>
             <label>Time To Wait: </label><input type="text" name="timeToWait"><br/>
-            <label>Data: </label><input type="text" name="date"><br/>
+            <label>Data (dd-MM-yyyy): </label><input type="text" name="date"><br/>
             <button type="submit">Submit</button>
         </form>
     </div>

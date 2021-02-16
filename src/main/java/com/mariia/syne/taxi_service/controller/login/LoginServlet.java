@@ -1,4 +1,4 @@
-package com.mariia.syne.taxi_service.controller;
+package com.mariia.syne.taxi_service.controller.login;
 
 import com.mariia.syne.taxi_service.model.User;
 import com.mariia.syne.taxi_service.service.impl.UserServiceImpl;
