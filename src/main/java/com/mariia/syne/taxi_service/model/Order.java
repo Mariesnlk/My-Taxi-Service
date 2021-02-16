@@ -75,20 +75,20 @@ public class Order {
         this.passengersNumber = passengersNumber;
     }
 
-    public Integer getPassengersID() {
+    public Integer getPassengersId() {
         return passengersId;
     }
 
-    public void setPassengersID(Integer passengersID) {
-        this.passengersId = passengersID;
+    public void setPassengersId(Integer passengersId) {
+        this.passengersId = passengersId;
     }
 
-    public Integer getAutoID() {
+    public Integer getAutoId() {
         return autoId;
     }
 
-    public void setAutoID(Integer autoID) {
-        this.autoId = autoID;
+    public void setAutoId(Integer autoId) {
+        this.autoId = autoId;
     }
 
     public double getPrice() {

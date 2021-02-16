@@ -51,7 +51,7 @@
                 <th>addressTo</th>
                 <th>passengersNumber</th>
                 <th>passengers Id</th>
-                <th>autoID</th>
+                <th>auto Id</th>
                 <th>price</th>
                 <th>discount</th>
                 <th>timeToWait</th>
@@ -70,8 +70,8 @@
                     out.println("<td>" + order.getAddressFrom() + "</td>");
                     out.println("<td>" + order.getAddressTo() + "</td>");
                     out.println("<td>" + order.getPassengersNumber() + "</td>");
-                    out.println("<td>" + order.getPassengersID() + "</td>");
-                    out.println("<td>" + order.getAutoID() + "</td>");
+                    out.println("<td>" + order.getPassengersId() + "</td>");
+                    out.println("<td>" + order.getAutoId() + "</td>");
                     out.println("<td>" + order.getPrice() + "</td>");
                     out.println("<td>" + order.getDiscount() + "</td>");
                     out.println("<td>" + order.getTimeToWait() + "</td>");

@@ -27,7 +27,7 @@
             <label>Address To: </label><input type="text" name="addressTo"><br/>
             <label>Passengers Number: </label><input type="text" name="passengersNumber"><br/>
             <label>passenger Id: </label><input type="text" name="passengersId"><br/>
-            <label>auto ID: </label><input type="text" name="autoID"><br/>
+            <label>auto Id: </label><input type="text" name="autoId"><br/>
             <label>Price: </label><input type="text" name="price"><br/>
             <label>Discount: </label><input type="text" name="discount"><br/>
             <label>Time To Wait: </label><input type="text" name="timeToWait"><br/>

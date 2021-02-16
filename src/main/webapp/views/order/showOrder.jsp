@@ -73,7 +73,7 @@
                 <td>Passengers Id:</td>
                 <td>
                     <%
-                        out.println(order.getPassengersID());
+                        out.println(order.getPassengersId());
                     %>
                 </td>
             </tr>
@@ -82,7 +82,7 @@
                 <td>Auto Id:</td>
                 <td>
                     <%
-                        out.println(order.getAutoID());
+                        out.println(order.getAutoId());
                     %>
                 </td>
             </tr>

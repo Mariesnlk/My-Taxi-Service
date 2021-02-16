@@ -22,8 +22,8 @@ public class OrderDAOImpl implements OrderDAO {
             String addressFrom = order.getAddressFrom();
             String addressTo = order.getAddressTo();
             int passengersNumber = order.getPassengersNumber();
-            Integer passengersId = order.getPassengersID();
-            Integer autoId = order.getAutoID();
+            Integer passengersId = order.getPassengersId();
+            Integer autoId = order.getAutoId();
             double price = order.getPrice();
             double discount = order.getDiscount();
             int timeToWait = order.getTimeToWait();
@@ -167,8 +167,8 @@ public class OrderDAOImpl implements OrderDAO {
             String newAddressFrom = order.getAddressFrom();
             String newAddressTo = order.getAddressTo();
             int newPassengersNumber = order.getPassengersNumber();
-            Integer newPassengersId = order.getPassengersID();
-            Integer newAutoId = order.getAutoID();
+            Integer newPassengersId = order.getPassengersId();
+            Integer newAutoId = order.getAutoId();
             double newPrice = order.getPrice();
             double newDiscount = order.getDiscount();
             int newTimeToWait = order.getTimeToWait();
