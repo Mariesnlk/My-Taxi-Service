@@ -56,4 +56,18 @@ public class OrderServiceImpl implements OrderService {
         List<Order> allSortedOrders = orderDAO.sortDateDecrease();
         return allSortedOrders;
     }
+
+    @Override
+    public List<Order> sortPriceIncrease() {
+        OrderDAO orderDAO = new OrderDAOImpl();
+        List<Order> allSortedOrders = orderDAO.sortPriceIncrease();
+        return allSortedOrders;
+    }
+
+    @Override
+    public List<Order> sortPriceDecrease() {
+        OrderDAO orderDAO = new OrderDAOImpl();
+        List<Order> allSortedOrders = orderDAO.sortPriceDecrease();
+        return allSortedOrders;
+    }
 }

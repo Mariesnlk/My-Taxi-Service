@@ -10,4 +10,8 @@ public interface OrderService  extends CRUDService<Order, Integer> {
 
     public List<Order> sortDateDecrease();
 
+    public List<Order> sortPriceIncrease();
+
+    public List<Order> sortPriceDecrease();
+
 }
