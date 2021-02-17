@@ -13,17 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "GetAllOrdersSortedByIncreaseDateServlet", urlPatterns = {"/sort-date-increase"})
-public class GetAllOrdersSortedByIncreaseDateServlet extends HttpServlet {
+@WebServlet(name = "GetAllOrdersSortedByDecreaseDateServlet", urlPatterns = {"/sort-date-decrease"})
+public class GetAllOrdersSortedByDecreaseDateServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         OrderService orderService = new OrderServiceImpl();
 
-        List<Order> allSortedOrders = orderService.sortDateIncrease();
-        request.setAttribute("allSortedByDateIncreaseOrders", allSortedOrders);
+        List<Order> allSortedOrders = orderService.sortDateDecrease();
+        request.setAttribute("allSortedByDateDecreaseOrders", allSortedOrders);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/order/showOrderSortedByDateIncrease.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/order/showOrderSortedByDateDecrease.jsp");
         requestDispatcher.forward(request, response);
     }
 }
