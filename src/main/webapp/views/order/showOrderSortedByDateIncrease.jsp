@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Марія
-  Date: 13.02.2021
-  Time: 23:23
+  Date: 17.02.2021
+  Time: 21:02
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.List" %>
@@ -11,7 +11,7 @@
 
 <html>
 <head>
-    <title>All Orders</title>
+    <title>Sorted Orders</title>
     <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
     <%--<style>
         body {
@@ -25,7 +25,7 @@
 </head>
 <body>
 <div>
-    <h1>All Orders Table</h1>
+    <h1>Sorted Orders By Date Increase</h1>
 </div>
 <br>
 <div>
@@ -45,7 +45,7 @@
     <div>
 
         <%
-            List<Order> orders = (List<Order>) request.getAttribute("allOrders");
+            List<Order> orders = (List<Order>) request.getAttribute("allSortedByDateIncreaseOrders");
             if (orders != null && !orders.isEmpty()) {
         %>
 

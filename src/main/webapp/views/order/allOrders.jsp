@@ -34,6 +34,12 @@
     <input type=button onClick="location.href='/add-order'" value='Add Order'>
 </div>
 <br>
+<div>
+    <input type=button onClick="location.href='/sort-date-increase'" value='Sorting by date increase'>
+
+    <input type=button onClick="location.href='/sort-date-decrease'" value='Sorting by time decrease'>
+</div>
+<br>
 <br>
 <div>
     <div>
@@ -47,14 +53,14 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <th>addressFrom</th>
-                <th>addressTo</th>
-                <th>passengersNumber</th>
+                <th>address From</th>
+                <th>address To</th>
+                <th>passengers Number</th>
                 <th>passengers Id</th>
                 <th>auto Id</th>
                 <th>price</th>
                 <th>discount</th>
-                <th>timeToWait</th>
+                <th>time To Wait</th>
                 <th>data</th>
                 <th>Update</th>
                 <th>Delete</th>
@@ -98,7 +104,12 @@
 </div>
 
 <br>
+<div>
+    <input type=button onClick="location.href='/sort-date-increase'" value='Sorting by date increase'>
 
+    <input type=button onClick="location.href='/sort-date-decrease'" value='Sorting by time decrease'>
+</div>
+<br>
 <div>
     <input type=button onClick="location.href='../..'" value='Back to main page'>
 

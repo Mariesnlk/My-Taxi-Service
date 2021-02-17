@@ -42,4 +42,18 @@ public class OrderServiceImpl implements OrderService {
         //System.out.println("Delete order: " + result);
         return result;
     }
+
+    @Override
+    public List<Order> sortDateIncrease() {
+        OrderDAO orderDAO = new OrderDAOImpl();
+        List<Order> allSortedOrders = orderDAO.sortDateIncrease();
+        return allSortedOrders;
+    }
+
+    @Override
+    public List<Order> sortDateDecrease() {
+        OrderDAO orderDAO = new OrderDAOImpl();
+        List<Order> allSortedOrders = orderDAO.sortDateDecrease();
+        return allSortedOrders;
+    }
 }

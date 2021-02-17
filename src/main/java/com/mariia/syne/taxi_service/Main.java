@@ -35,8 +35,8 @@ public class Main {
 //        System.out.println(allAutos);
 
         OrderDAO orderDAO = new OrderDAOImpl();
-        List<Order> allOrder = orderDAO.findAll();
-        System.out.println(allOrder);
+        List<Order> sortedByDate = orderDAO.sortDateIncrease();
+        System.out.println(sortedByDate);
 
     }
 }

@@ -276,4 +276,114 @@ public class OrderDAOImpl implements OrderDAO {
         }
         return result;
     }
+
+    @Override
+    public List<Order> sortDateIncrease() {
+        List<Order> orders = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM taxi_servise_db.order ORDER BY price ASC";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idOrder = rs.getInt("id");
+                String addressFrom = rs.getString("addressFrom");
+                String addressTo = rs.getString("addressTo");
+                int passengersNumber = rs.getInt("passengersNumber");
+                Integer passengersId = rs.getInt("passengersId");
+                Integer autoId = rs.getInt("autoId");
+                double price = rs.getDouble("price");
+                double discount = rs.getDouble("discount");
+                int timeToWait = rs.getInt("timeToWait");
+                //Date date = rs.getDate("date");
+                java.sql.Date sqlDate = rs.getDate("date");
+                java.util.Date date = null;
+                if(sqlDate!=null) {
+                    date = new java.util.Date(sqlDate.getTime());
+                }
+
+                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                        discount, timeToWait, date);
+                orders.add(ord);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return orders;
+    }
+
+    @Override
+    public List<Order> sortDateDecrease() {
+        List<Order> orders = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM taxi_servise_db.order ORDER BY price DESC";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idOrder = rs.getInt("id");
+                String addressFrom = rs.getString("addressFrom");
+                String addressTo = rs.getString("addressTo");
+                int passengersNumber = rs.getInt("passengersNumber");
+                Integer passengersId = rs.getInt("passengersId");
+                Integer autoId = rs.getInt("autoId");
+                double price = rs.getDouble("price");
+                double discount = rs.getDouble("discount");
+                int timeToWait = rs.getInt("timeToWait");
+                //Date date = rs.getDate("date");
+                java.sql.Date sqlDate = rs.getDate("date");
+                java.util.Date date = null;
+                if(sqlDate!=null) {
+                    date = new java.util.Date(sqlDate.getTime());
+                }
+
+                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                        discount, timeToWait, date);
+                orders.add(ord);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return orders;
+    }
 }
