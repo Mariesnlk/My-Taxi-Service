@@ -42,4 +42,46 @@ public class AutoServiceImpl implements AutoService {
         //System.out.println("Delete auto: " + result);
         return result;
     }
+
+    @Override
+    public List<Auto> sortCapacityIncrease() {
+        AutoDAO autoDAO = new AutoDAOImpl();
+        List<Auto> allSortedAutos = autoDAO.sortCapacityIncrease();
+        return allSortedAutos;
+    }
+
+    @Override
+    public List<Auto> sortCapacityDecrease() {
+        AutoDAO autoDAO = new AutoDAOImpl();
+        List<Auto> allSortedAutos = autoDAO.sortCapacityDecrease();
+        return allSortedAutos;
+    }
+
+    @Override
+    public List<Auto> sortCategoryIncrease() {
+        AutoDAO autoDAO = new AutoDAOImpl();
+        List<Auto> allSortedAutos = autoDAO.sortCategoryIncrease();
+        return allSortedAutos;
+    }
+
+    @Override
+    public List<Auto> sortCategoryDecrease() {
+        AutoDAO autoDAO = new AutoDAOImpl();
+        List<Auto> allSortedAutos = autoDAO.sortCategoryDecrease();
+        return allSortedAutos;
+    }
+
+    @Override
+    public List<Auto> sortStatusIncrease() {
+        AutoDAO autoDAO = new AutoDAOImpl();
+        List<Auto> allSortedAutos = autoDAO.sortStatusIncrease();
+        return allSortedAutos;
+    }
+
+    @Override
+    public List<Auto> sortStatusDecrease() {
+        AutoDAO autoDAO = new AutoDAOImpl();
+        List<Auto> allSortedAutos = autoDAO.sortStatusIncrease();
+        return allSortedAutos;
+    }
 }

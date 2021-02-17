@@ -216,4 +216,256 @@ public class AutoDAOImpl implements AutoDAO {
         }
         return result;
     }
+
+    @Override
+    public List<Auto> sortCapacityIncrease() {
+        List<Auto> autoList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM auto ORDER BY passangersCapacity ASC";
+            ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idAuto = rs.getInt("id");
+                int passengersCapacity = rs.getInt("passangersCapacity");
+                String category = rs.getString("category");
+                String status = rs.getString("status");
+
+                Auto auto = new Auto(idAuto, passengersCapacity, category, status);
+                autoList.add(auto);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return autoList;
+    }
+
+    @Override
+    public List<Auto> sortCapacityDecrease() {
+        List<Auto> autoList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM auto ORDER BY passangersCapacity DESC";
+            ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idAuto = rs.getInt("id");
+                int passengersCapacity = rs.getInt("passangersCapacity");
+                String category = rs.getString("category");
+                String status = rs.getString("status");
+
+                Auto auto = new Auto(idAuto, passengersCapacity, category, status);
+                autoList.add(auto);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return autoList;
+    }
+
+    @Override
+    public List<Auto> sortCategoryIncrease() {
+        List<Auto> autoList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM auto ORDER BY category ASC";
+            ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idAuto = rs.getInt("id");
+                int passengersCapacity = rs.getInt("passangersCapacity");
+                String category = rs.getString("category");
+                String status = rs.getString("status");
+
+                Auto auto = new Auto(idAuto, passengersCapacity, category, status);
+                autoList.add(auto);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return autoList;
+    }
+
+    @Override
+    public List<Auto> sortCategoryDecrease() {
+        List<Auto> autoList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM auto ORDER BY category DESC";
+            ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idAuto = rs.getInt("id");
+                int passengersCapacity = rs.getInt("passangersCapacity");
+                String category = rs.getString("category");
+                String status = rs.getString("status");
+
+                Auto auto = new Auto(idAuto, passengersCapacity, category, status);
+                autoList.add(auto);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return autoList;
+    }
+
+    @Override
+    public List<Auto> sortStatusIncrease() {
+        List<Auto> autoList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM auto ORDER BY status ASC";
+            ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idAuto = rs.getInt("id");
+                int passengersCapacity = rs.getInt("passangersCapacity");
+                String category = rs.getString("category");
+                String status = rs.getString("status");
+
+                Auto auto = new Auto(idAuto, passengersCapacity, category, status);
+                autoList.add(auto);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return autoList;
+    }
+
+    @Override
+    public List<Auto> sortStatusDecrease() {
+        List<Auto> autoList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM auto ORDER BY status DESC";
+            ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idAuto = rs.getInt("id");
+                int passengersCapacity = rs.getInt("passangersCapacity");
+                String category = rs.getString("category");
+                String status = rs.getString("status");
+
+                Auto auto = new Auto(idAuto, passengersCapacity, category, status);
+                autoList.add(auto);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return autoList;
+    }
 }

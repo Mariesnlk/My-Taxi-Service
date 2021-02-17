@@ -1,5 +1,6 @@
 <%@ page import="com.mariia.syne.taxi_service.model.Auto" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: Марія
   Date: 13.02.2021

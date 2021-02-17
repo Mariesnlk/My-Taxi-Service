@@ -2,7 +2,21 @@ package com.mariia.syne.taxi_service.service.interf;
 
 import com.mariia.syne.taxi_service.model.Auto;
 
-public interface AutoService  extends CRUDService<Auto, Integer> {
+import java.util.List;
+
+public interface AutoService extends CRUDService<Auto, Integer> {
+
+    List<Auto> sortCapacityIncrease();
+
+    List<Auto> sortCapacityDecrease();
+
+    List<Auto> sortCategoryIncrease();
+
+    List<Auto> sortCategoryDecrease();
+
+    List<Auto> sortStatusIncrease();
+
+    List<Auto> sortStatusDecrease();
 
 }
 
