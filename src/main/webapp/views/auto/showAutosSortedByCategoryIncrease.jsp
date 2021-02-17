@@ -1,14 +1,15 @@
-<%@ page import="com.mariia.syne.taxi_service.model.Auto" %>
-<%@ page import="java.util.List" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Марія
-  Date: 13.02.2021
-  Time: 21:38
+  Date: 17.02.2021
+  Time: 22:54
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="com.mariia.syne.taxi_service.model.Auto" %>
+<%@ page import="java.util.List" %>
 <html>
 <head>
-    <title>All Autos</title>
+    <title>Sorted Autos</title>
     <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
     <%--<style>
         body {
@@ -22,7 +23,7 @@
 </head>
 <body>
 <div>
-    <h1>All Autos Table</h1>
+    <h1>Sorted Autos By Category Increase</h1>
 </div>
 <br>
 <div>
@@ -55,7 +56,7 @@
     <div>
 
         <%
-            List<Auto> autos = (List<Auto>) request.getAttribute("allAutos");
+            List<Auto> autos = (List<Auto>) request.getAttribute("allSortedByCategoryIncreaseAutos");
             if (autos != null && !autos.isEmpty()) {
         %>
 
@@ -129,4 +130,3 @@
 
 </body>
 </html>
-

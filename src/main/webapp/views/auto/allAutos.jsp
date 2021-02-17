@@ -1,5 +1,6 @@
 <%@ page import="com.mariia.syne.taxi_service.model.Auto" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: Марія
   Date: 13.02.2021
@@ -31,7 +32,26 @@
     <input type=button onClick="location.href='/add-auto'" value='Add Auto'>
 </div>
 <br>
+<div>
+    <input type=button onClick="location.href='/sort-capacity-increase'" value='Sorting by passenger capacity increase'>
+
+    <input type=button onClick="location.href='/sort-capacity-decrease'" value='Sorting by passenger capacity decrease'>
+</div>
 <br>
+<div>
+    <input type=button onClick="location.href='/sort-category-increase'" value='Sorting by category increase'>
+
+    <input type=button onClick="location.href='/sort-category-decrease'" value='Sorting by category decrease'>
+</div>
+<br>
+<div>
+    <input type=button onClick="location.href='/sort-status-increase'" value='Sorting by status increase'>
+
+    <input type=button onClick="location.href='/sort-status-decrease'" value='Sorting by status decrease'>
+</div>
+<br>
+<br>
+
 <div>
     <div>
 
@@ -83,7 +103,25 @@
 </div>
 
 <br>
+<br>
+<div>
+    <input type=button onClick="location.href='/sort-status-increase'" value='Sorting by status increase'>
 
+    <input type=button onClick="location.href='/sort-status-decrease'" value='Sorting by status decrease'>
+</div>
+<br>
+<div>
+    <input type=button onClick="location.href='/sort-category-increase'" value='Sorting by category increase'>
+
+    <input type=button onClick="location.href='/sort-category-decrease'" value='Sorting by category decrease'>
+</div>
+<br>
+<div>
+    <input type=button onClick="location.href='/sort-capacity-increase'" value='Sorting by passenger capacity increase'>
+
+    <input type=button onClick="location.href='/sort-capacity-decrease'" value='Sorting by passenger capacity decrease'>
+</div>
+<br>
 <div>
     <input type=button onClick="location.href='../..'" value='Back to main page'>
 
