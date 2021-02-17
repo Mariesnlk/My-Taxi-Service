@@ -37,10 +37,17 @@
 <div>
     <input type=button onClick="location.href='/sort-date-increase'" value='Sorting by date increase'>
 
-    <input type=button onClick="location.href='/sort-date-decrease'" value='Sorting by time decrease'>
+    <input type=button onClick="location.href='/sort-date-decrease'" value='Sorting by date decrease'>
+</div>
+<br>
+<div>
+    <input type=button onClick="location.href='/sort-price-increase'" value='Sorting by price increase'>
+
+    <input type=button onClick="location.href='/sort-price-decrease'" value='Sorting by price decrease'>
 </div>
 <br>
 <br>
+
 <div>
     <div>
 
@@ -104,10 +111,17 @@
 </div>
 
 <br>
+<br>
+<div>
+    <input type=button onClick="location.href='/sort-price-increase'" value='Sorting by price increase'>
+
+    <input type=button onClick="location.href='/sort-price-decrease'" value='Sorting by price decrease'>
+</div>
+<br>
 <div>
     <input type=button onClick="location.href='/sort-date-increase'" value='Sorting by date increase'>
 
-    <input type=button onClick="location.href='/sort-date-decrease'" value='Sorting by time decrease'>
+    <input type=button onClick="location.href='/sort-date-decrease'" value='Sorting by date decrease'>
 </div>
 <br>
 <div>

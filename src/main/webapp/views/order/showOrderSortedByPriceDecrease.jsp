@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Марія
   Date: 17.02.2021
-  Time: 21:08
+  Time: 21:47
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.List" %>
@@ -25,7 +25,7 @@
 </head>
 <body>
 <div>
-    <h1>Sorted Orders By Date Decrease</h1>
+    <h1>Sorted Orders By Price Decrease</h1>
 </div>
 <br>
 <div>
@@ -52,7 +52,7 @@
     <div>
 
         <%
-            List<Order> orders = (List<Order>) request.getAttribute("allSortedByDateDecreaseOrders");
+            List<Order> orders = (List<Order>) request.getAttribute("allSortedByPriceDecreaseOrders");
             if (orders != null && !orders.isEmpty()) {
         %>
 
@@ -132,4 +132,3 @@
 
 </body>
 </html>
-
