@@ -11,20 +11,83 @@
     <title>Login Page</title>
 </head>
 <body>
+<style>
+    body {
+        background-image: url("/images/background.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-<form action="/login" method="POST">
-    <p>
-        <input type="text" name="userLogin" placeholder="login"/>
-    </p>
-    <p>
-        <input type="password" name="userPassword" placeholder="password"/>
-    </p>
-    <p>
-        <input type="submit" value="Send"/>
-    </p>
-</form>
+    h1 {
+        text-align: center;
+        color: rgba(220, 0, 0, 1);;
+    }
 
-<input type=button onClick="location.href='../..'" value='Back to main page'>
+    input[type=text], select {
+        width: 25%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=password], select {
+        width: 25%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .button, .container.button {
+        border: 0;
+        line-height: 2.5;
+        padding: 0 20px;
+        font-size: 1rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        border-radius: 10px;
+        background-color: rgba(220, 0, 0, 1);
+        background-image: linear-gradient(to top left,
+        rgba(0, 0, 0, .2),
+        rgba(0, 0, 0, .2) 30%,
+        rgba(0, 0, 0, 0));
+        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+        inset -2px -2px 3px rgba(0, 0, 0, .6);
+    }
+
+    .container{
+        text-align: center;
+    }
+
+</style>
+
+
+<h1>Please Login</h1>
+
+<div class="container">
+    <form action="/login" method="POST">
+        <div>
+            <input type="text" name="userLogin" placeholder="Enter your login"/>
+        </div>
+        <div>
+            <input type="password" name="userPassword" placeholder="Enter your password"/>
+        </div>
+        <div>
+            <%--        <input type="submit" value="Send"/>--%>
+            <button class="button" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <input class="button" type=button onClick="location.href='../..'" value='Back to main page'>
+</div>
 
 </body>
 </html>
