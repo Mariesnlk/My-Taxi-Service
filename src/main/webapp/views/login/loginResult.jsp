@@ -12,27 +12,61 @@
 </head>
 <body>
 
+<style>
+    body {
+        background-image: url("/images/background.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1 {
+        text-align: center;
+        color: rgba(220, 0, 0, 1);;
+    }
+
+    input.button {
+        border: 0;
+        line-height: 2.5;
+        padding: 0 20px;
+        font-size: 1rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        border-radius: 10px;
+        background-color: rgba(220, 0, 0, 1);
+        background-image: linear-gradient(to top left,
+        rgba(0, 0, 0, .2),
+        rgba(0, 0, 0, .2) 30%,
+        rgba(0, 0, 0, 0));
+        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+        inset -2px -2px 3px rgba(0, 0, 0, .6);
+    }
+
+</style>
+
 <div>
 
     <%
         User registeredUser = (User) session.getAttribute("registeredUser");
 
         if (registeredUser != null ) {
-            out.println("<p>Success!</p>");
-            out.println(registeredUser);
-            out.println("userRole="+registeredUser.getRole());
+            out.println("<h1>You have successfully registered!</h1>");
+//            out.println(registeredUser);
+//            out.println("userRole="+registeredUser.getRole());
     %>
-    <input type=button onClick="location.href='/logout'" value='Logout'>
-    <input type=button onClick="location.href='../..'" value='Back to main page'>
+
+    <br>
+    <input class="button" type=button onClick="location.href='/logout'" value='Logout'>
+    <input class="button" type=button onClick="location.href='../..'" value='Back to main page'>
     <%
     }
 
     else {
-        out.println("<p>Error!</p>");
+        out.println("<h1>Error! Try one more time!</h1>");
 
     %>
-    <input type=button onClick="location.href='/login'" value='Login'>
-    <input type=button onClick="location.href='../..'" value='Back to main page'>
+    <input class="button" type=button onClick="location.href='/login'" value='Login'>
+    <input class="button" type=button onClick="location.href='../..'" value='Back to main page'>
     <%
         }
     %>
