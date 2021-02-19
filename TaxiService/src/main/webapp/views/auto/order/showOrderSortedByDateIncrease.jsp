@@ -83,7 +83,7 @@
                     out.println("<td>" + order.getAddressFrom() + "</td>");
                     out.println("<td>" + order.getAddressTo() + "</td>");
                     out.println("<td>" + order.getPassengersNumber() + "</td>");
-                    out.println("<td>" + order.getPassengersId() + "</td>");
+                    out.println("<td>" + order.getPassengerId() + "</td>");
                     out.println("<td>" + order.getAutoId() + "</td>");
                     out.println("<td>" + order.getPrice() + "</td>");
                     out.println("<td>" + order.getDiscount() + "</td>");

@@ -8,7 +8,7 @@ public class Order {
     private String addressFrom;
     private String addressTo;
     private int passengersNumber;
-    private Integer passengersId;
+    private Integer passengerId;
     private Integer autoId;
     private double price;
     private double discount;
@@ -16,12 +16,12 @@ public class Order {
     private Date date;
 
 
-    public Order(String addressFrom, String addressTo, int passengersNumber, Integer passengersId,
+    public Order(String addressFrom, String addressTo, int passengersNumber, Integer passengerId,
                  Integer autoId, double price, double discount, int timeToWait, Date date) {
         this.addressFrom = addressFrom;
         this.addressTo = addressTo;
         this.passengersNumber = passengersNumber;
-        this.passengersId = passengersId;
+        this.passengerId = passengerId;
         this.autoId = autoId;
         this.price = price;
         this.discount = discount;
@@ -29,11 +29,11 @@ public class Order {
         this.date = date;
     }
 
-    public Order(String addressFrom, String addressTo, int passengersNumber, Integer passengersId, Integer autoId, double price, double discount, int timeToWait) {
+    public Order(String addressFrom, String addressTo, int passengersNumber, Integer passengerId, Integer autoId, double price, double discount, int timeToWait) {
         this.addressFrom = addressFrom;
         this.addressTo = addressTo;
         this.passengersNumber = passengersNumber;
-        this.passengersId = passengersId;
+        this.passengerId = passengerId;
         this.autoId = autoId;
         this.price = price;
         this.discount = discount;
@@ -41,12 +41,12 @@ public class Order {
     }
 
     public Order(Integer id, String addressFrom, String addressTo, int passengersNumber,
-                 Integer passengersId, Integer autoId, double price, double discount, int timeToWait, Date date) {
+                 Integer passengerId, Integer autoId, double price, double discount, int timeToWait, Date date) {
         this.id = id;
         this.addressFrom = addressFrom;
         this.addressTo = addressTo;
         this.passengersNumber = passengersNumber;
-        this.passengersId = passengersId;
+        this.passengerId = passengerId;
         this.autoId = autoId;
         this.price = price;
         this.discount = discount;
@@ -86,12 +86,12 @@ public class Order {
         this.passengersNumber = passengersNumber;
     }
 
-    public Integer getPassengersId() {
-        return passengersId;
+    public Integer getPassengerId() {
+        return passengerId;
     }
 
-    public void setPassengersId(Integer passengersId) {
-        this.passengersId = passengersId;
+    public void setPassengerId(Integer passengerId) {
+        this.passengerId = passengerId;
     }
 
     public Integer getAutoId() {
@@ -141,7 +141,7 @@ public class Order {
                 ", addressFrom='" + addressFrom + '\'' +
                 ", addressTo='" + addressTo + '\'' +
                 ", passengersNumber=" + passengersNumber +
-                ", passengersID=" + passengersId +
+                ", passengerId=" + passengerId +
                 ", autoID=" + autoId +
                 ", price=" + price +
                 ", discount=" + discount +

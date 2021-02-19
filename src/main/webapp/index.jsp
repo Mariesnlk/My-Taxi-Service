@@ -69,11 +69,11 @@
 </div>
 
 <div>
-    <input class="button" type=button onClick="location.href='/users'" value='Users'>
+    <input class="button" type=button onClick="location.href='/users'" value='All Users'>
 </div>
 
 <div>
-    <input class="button" type=button onClick="location.href='/autos'" value='Autos'>
+    <input class="button" type=button onClick="location.href='/autos'" value='All Autos'>
 </div>
 
 <div>
@@ -81,7 +81,7 @@
 </div>
 
 <div>
-    <input class="button" type=button onClick="location.href='/orders'" value='Orders'>
+    <input class="button" type=button onClick="location.href='/orders'" value='All Orders'>
 </div>
 
 <div>

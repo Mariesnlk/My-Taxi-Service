@@ -76,6 +76,7 @@
     }
 
 </style>
+
 <div>
     <%
         if (request.getAttribute("lastName") != null) {

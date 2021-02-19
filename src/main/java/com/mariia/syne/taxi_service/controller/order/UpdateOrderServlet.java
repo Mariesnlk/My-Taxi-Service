@@ -38,7 +38,7 @@ public class UpdateOrderServlet extends HttpServlet {
         String addressFrom = request.getParameter("addressFrom");
         String addressTo = request.getParameter("addressTo");
         int passengersNumber = Integer.parseInt(request.getParameter("passengersNumber"));
-        Integer passengersId = Integer.parseInt(request.getParameter("passengersId"));
+        Integer passengerId = Integer.parseInt(request.getParameter("passengerId"));
         Integer autoId = Integer.parseInt(request.getParameter("autoId"));
         Double price = Double.valueOf(request.getParameter("price"));
         Double discount = Double.valueOf(request.getParameter("discount"));
@@ -61,7 +61,7 @@ public class UpdateOrderServlet extends HttpServlet {
             System.out.println(e);
         }
 
-        Order updateOrder = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+        Order updateOrder = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengerId, autoId, price,
                 discount, timeToWait, resultDate);
         OrderService orderService = new OrderServiceImpl();
 

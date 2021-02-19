@@ -73,7 +73,7 @@
                 <td>Passengers Id:</td>
                 <td>
                     <%
-                        out.println(order.getPassengersId());
+                        out.println(order.getPassengerId());
                     %>
                 </td>
             </tr>

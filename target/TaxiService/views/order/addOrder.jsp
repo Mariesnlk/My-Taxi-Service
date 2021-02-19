@@ -105,10 +105,10 @@
                 out.println("<input type=\"text\" name=\"autoId\" value=\"" + autoId + "\" hidden>");
             %>--%>
 
-            <h3>passenger Id: </h3><%out.println(idUser);%><br/>
-            <h3>auto Id: </h3><%out.println(idAutoString);%>
+            <label>passenger Id: </label><%out.println(idUser);%><br/>
+            <label>auto Id: </label><%out.println(idAutoString);%><br/>
             <input class="button" type=button onClick="location.href='/choose-auto'" value='Chose Auto'><br/>
-
+            <br>
             <label>Address From: </label>
             <select name="addressFrom">
                 <option value="Kyiv">Kyiv</option>
@@ -152,13 +152,13 @@
             <label>Data (dd-MM-yyyy): </label><input type="text" name="date"><br/>
             <button class="button" type="submit">Submit</button>
 
-<%--            <%--%>
-<%--                out.println("<input type=\"text\" name=\"passengerId\" value=\"" + idUser + "\" hidden>");--%>
-<%--            %>--%>
+            <%--            <%--%>
+            <%--                out.println("<input type=\"text\" name=\"passengerId\" value=\"" + idUser + "\" hidden>");--%>
+            <%--            %>--%>
 
-<%--            <%--%>
-<%--                out.println("<input type=\"text\" name=\"autoId\" value=\"" + idAuto + "\" hidden>");--%>
-<%--            %>--%>
+            <%--            <%--%>
+            <%--                out.println("<input type=\"text\" name=\"autoId\" value=\"" + idAuto + "\" hidden>");--%>
+            <%--            %>--%>
 
 
             <%--<%request.setAttribute("passengerId",idUser);%><br/>

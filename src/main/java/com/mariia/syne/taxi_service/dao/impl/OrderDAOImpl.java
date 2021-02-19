@@ -25,7 +25,7 @@ public class OrderDAOImpl implements OrderDAO {
             String addressFrom = order.getAddressFrom();
             String addressTo = order.getAddressTo();
             int passengersNumber = order.getPassengersNumber();
-            Integer passengersId = order.getPassengersId();
+            Integer passengerId = order.getPassengerId();
             Integer autoId = order.getAutoId();
             double price = order.getPrice();
             double discount = order.getDiscount();
@@ -39,7 +39,7 @@ public class OrderDAOImpl implements OrderDAO {
             }
 
             String query = "INSERT INTO taxi_servise_db.order(addressFrom, addressTo, passengersNumber, " +
-                    "passengersId, autoId,  price, discount,  timeToWait, date) VALUES(?,?,?,?,?,?,?,?,?)";
+                    "passengerId, autoId,  price, discount,  timeToWait, date) VALUES(?,?,?,?,?,?,?,?,?)";
 
             ps = connection.prepareStatement(query);
 
@@ -48,7 +48,7 @@ public class OrderDAOImpl implements OrderDAO {
             ps.setString(1, addressFrom);
             ps.setString(2, addressTo);
             ps.setInt(3, passengersNumber);
-            ps.setInt(4, passengersId);
+            ps.setInt(4, passengerId);
             ps.setInt(5, autoId);
             ps.setDouble(6, price);
             ps.setDouble(7, discount);
@@ -97,7 +97,7 @@ public class OrderDAOImpl implements OrderDAO {
                 String addressFrom = resultSet.getString("addressFrom");
                 String addressTo = resultSet.getString("addressTo");
                 int passengersNumber = resultSet.getInt("passengersNumber");
-                Integer passengersId = resultSet.getInt("passengersId");
+                Integer passengerId = resultSet.getInt("passengersId");
                 int autoId = resultSet.getInt("autoId");
                 double price = resultSet.getDouble("price");
                 double discount = resultSet.getDouble("discount");
@@ -108,7 +108,7 @@ public class OrderDAOImpl implements OrderDAO {
                     date = new java.util.Date(sqlDate.getTime());
                 }
 
-                order = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                order = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengerId, autoId, price,
                         discount, timeToWait, date);
             }
 
@@ -150,7 +150,7 @@ public class OrderDAOImpl implements OrderDAO {
                 String addressFrom = rs.getString("addressFrom");
                 String addressTo = rs.getString("addressTo");
                 int passengersNumber = rs.getInt("passengersNumber");
-                Integer passengersId = rs.getInt("passengersId");
+                Integer passengerId = rs.getInt("passengerId");
                 Integer autoId = rs.getInt("autoId");
                 double price = rs.getDouble("price");
                 double discount = rs.getDouble("discount");
@@ -162,7 +162,7 @@ public class OrderDAOImpl implements OrderDAO {
                     date = new java.util.Date(sqlDate.getTime());
                 }
 
-                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengerId, autoId, price,
                         discount, timeToWait, date);
                 orders.add(ord);
             }
@@ -194,7 +194,7 @@ public class OrderDAOImpl implements OrderDAO {
             String newAddressFrom = order.getAddressFrom();
             String newAddressTo = order.getAddressTo();
             int newPassengersNumber = order.getPassengersNumber();
-            Integer newPassengersId = order.getPassengersId();
+            Integer newPassengerId = order.getPassengerId();
             Integer newAutoId = order.getAutoId();
             double newPrice = order.getPrice();
             double newDiscount = order.getDiscount();
@@ -208,7 +208,7 @@ public class OrderDAOImpl implements OrderDAO {
 
             String query =
                     "UPDATE taxi_servise_db.order SET addressFrom  = '" + newAddressFrom + "',  addressTo = '" + newAddressTo + "', " +
-                            "passengersNumber = '" + newPassengersNumber + "', passengersId = '" + newPassengersId + "', " +
+                            "passengersNumber = '" + newPassengersNumber + "', passengerId = '" + newPassengerId + "', " +
                             "autoId = '" + newAutoId + "' , price = '" + newPrice + "' , discount = '" + newDiscount +
                             "', timeToWait = '" + newTimeToWait + "', date '" + newDate + "' WHERE id = ?";
 
@@ -300,7 +300,7 @@ public class OrderDAOImpl implements OrderDAO {
                 String addressFrom = rs.getString("addressFrom");
                 String addressTo = rs.getString("addressTo");
                 int passengersNumber = rs.getInt("passengersNumber");
-                Integer passengersId = rs.getInt("passengersId");
+                Integer passengerId = rs.getInt("passengerId");
                 Integer autoId = rs.getInt("autoId");
                 double price = rs.getDouble("price");
                 double discount = rs.getDouble("discount");
@@ -312,7 +312,7 @@ public class OrderDAOImpl implements OrderDAO {
                     date = new java.util.Date(sqlDate.getTime());
                 }
 
-                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengerId, autoId, price,
                         discount, timeToWait, date);
                 orders.add(ord);
             }
@@ -355,7 +355,7 @@ public class OrderDAOImpl implements OrderDAO {
                 String addressFrom = rs.getString("addressFrom");
                 String addressTo = rs.getString("addressTo");
                 int passengersNumber = rs.getInt("passengersNumber");
-                Integer passengersId = rs.getInt("passengersId");
+                Integer passengerId = rs.getInt("passengerId");
                 Integer autoId = rs.getInt("autoId");
                 double price = rs.getDouble("price");
                 double discount = rs.getDouble("discount");
@@ -367,7 +367,7 @@ public class OrderDAOImpl implements OrderDAO {
                     date = new java.util.Date(sqlDate.getTime());
                 }
 
-                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengerId, autoId, price,
                         discount, timeToWait, date);
                 orders.add(ord);
             }
@@ -410,7 +410,7 @@ public class OrderDAOImpl implements OrderDAO {
                 String addressFrom = rs.getString("addressFrom");
                 String addressTo = rs.getString("addressTo");
                 int passengersNumber = rs.getInt("passengersNumber");
-                Integer passengersId = rs.getInt("passengersId");
+                Integer passengerId = rs.getInt("passengerId");
                 Integer autoId = rs.getInt("autoId");
                 double price = rs.getDouble("price");
                 double discount = rs.getDouble("discount");
@@ -422,7 +422,7 @@ public class OrderDAOImpl implements OrderDAO {
                     date = new java.util.Date(sqlDate.getTime());
                 }
 
-                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengerId, autoId, price,
                         discount, timeToWait, date);
                 orders.add(ord);
             }
@@ -465,7 +465,7 @@ public class OrderDAOImpl implements OrderDAO {
                 String addressFrom = rs.getString("addressFrom");
                 String addressTo = rs.getString("addressTo");
                 int passengersNumber = rs.getInt("passengersNumber");
-                Integer passengersId = rs.getInt("passengersId");
+                Integer passengerId = rs.getInt("passengerId");
                 Integer autoId = rs.getInt("autoId");
                 double price = rs.getDouble("price");
                 double discount = rs.getDouble("discount");
@@ -477,7 +477,7 @@ public class OrderDAOImpl implements OrderDAO {
                     date = new java.util.Date(sqlDate.getTime());
                 }
 
-                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+                Order ord = new Order(idOrder, addressFrom, addressTo, passengersNumber, passengerId, autoId, price,
                         discount, timeToWait, date);
                 orders.add(ord);
             }
