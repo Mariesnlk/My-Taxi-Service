@@ -3,8 +3,6 @@ package com.mariia.syne.taxi_service.controller.user;
 import com.mariia.syne.taxi_service.model.User;
 import com.mariia.syne.taxi_service.service.impl.UserServiceImpl;
 import com.mariia.syne.taxi_service.service.interf.UserService;
-import com.mariia.syne.taxi_service.util.FieldsValidator;
-import com.sun.corba.se.impl.io.FVDCodeBaseImpl;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;

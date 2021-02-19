@@ -73,29 +73,42 @@
             out.println("<p>User '" + request.getAttribute("lastName") + "' added!</p>");
         }
     %>--%>
+
     <%
         User registeredUser = (User) session.getAttribute("registeredUser");
         Integer idUser = registeredUser.getId();
 
-        Auto chosenAuto = (Auto) session.getAttribute("chosenAuto");
+        Auto chosenAuto = (Auto) request.getAttribute("chosenAuto");
         String idAutoString = "no auto";
+        Integer idAuto = -1;
         if (chosenAuto != null) {
-            Integer idAuto = chosenAuto.getId();
+            idAuto = chosenAuto.getId();
             idAutoString = String.valueOf(idAuto);
         }
+            /*
+            session.setAttribute("autoId",idAuto);*/
     %>
-
     <h1>Add order</h1>
 
     <div>
         <form action="/add-order" method="post">
 
-            <label>Passenger Id: </label>
-            <%--            <input type="text" name="passengersId"><br/>--%>
-            <%out.println(idUser);%><br/>
-            <label>Auto Id: </label> <%out.println(idAutoString);%>
-            <%--            <input type="text" name="autoId">--%>
-            <input class="button" type=button onClick="location.href='/choose-auto'" value='Choose auto'><br/>
+            <%--            <%out.println(registeredUser);%><br/>--%>
+            <%--            <%out.println(chosenAuto);%><br/>--%>
+            <%--            <%out.println(idAutoString);%><br/>--%>
+
+            <%--<%
+                Integer passengerId = Integer.valueOf(request.getParameter("passengerId"));
+                Integer autoId = Integer.valueOf(request.getParameter("autoId"));
+
+                out.println("<input type=\"text\" name=\"passengerId\" value=\"" + passengerId + "\" hidden>");
+                out.println("<input type=\"text\" name=\"autoId\" value=\"" + autoId + "\" hidden>");
+            %>--%>
+
+            <h3>passenger Id: </h3><%out.println(idUser);%><br/>
+            <h3>auto Id: </h3><%out.println(idAutoString);%>
+            <input class="button" type=button onClick="location.href='/choose-auto'" value='Chose Auto'><br/>
+
             <label>Address From: </label>
             <select name="addressFrom">
                 <option value="Kyiv">Kyiv</option>
@@ -112,6 +125,7 @@
                 <option value="Chernihiv">Chernihiv</option>
                 <option value="Cherkasy">Cherkasy</option>
             </select>
+
             <label>Address To: </label>
             <select name="addressTo">
                 <option value="Kyiv">Kyiv</option>
@@ -128,13 +142,27 @@
                 <option value="Chernihiv">Chernihiv</option>
                 <option value="Cherkasy">Cherkasy</option>
             </select>
+
             <label>Passengers Number: </label><input type="text" name="passengersNumber"
                                                      placeholder="Choose passengers number.."><br/>
-            <label>Price: </label><input type="text" name="price"><br/>
+            <%--<label>passenger Id: </label><input type="text" name="passengersId"><br/>--%>
             <label>Discount: </label><input type="text" name="discount" placeholder="Enter discount.."><br/>
+            <label>Price: </label><input type="text" name="price"><br/>
             <label>Time To Wait: </label><input type="text" name="timeToWait"><br/>
             <label>Data (dd-MM-yyyy): </label><input type="text" name="date"><br/>
             <button class="button" type="submit">Submit</button>
+
+<%--            <%--%>
+<%--                out.println("<input type=\"text\" name=\"passengerId\" value=\"" + idUser + "\" hidden>");--%>
+<%--            %>--%>
+
+<%--            <%--%>
+<%--                out.println("<input type=\"text\" name=\"autoId\" value=\"" + idAuto + "\" hidden>");--%>
+<%--            %>--%>
+
+
+            <%--<%request.setAttribute("passengerId",idUser);%><br/>
+            <%request.setAttribute("autoId",idAuto);%><br/>--%>
         </form>
     </div>
 

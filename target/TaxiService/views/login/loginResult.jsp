@@ -50,7 +50,7 @@
         User registeredUser = (User) session.getAttribute("registeredUser");
 
         if (registeredUser != null ) {
-            out.println("<h1>You have successfully registered!</h1>");
+            out.println("<h1>You have successfully log in!</h1>");
 //            out.println(registeredUser);
 //            out.println("userRole="+registeredUser.getRole());
     %>

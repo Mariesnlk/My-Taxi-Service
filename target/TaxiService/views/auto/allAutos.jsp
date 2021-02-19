@@ -125,7 +125,7 @@
 <div>
     <input type=button onClick="location.href='../..'" value='Back to main page'>
 
-    <input type=button onClick="location.href='/add-auto'" value='Add User'>
+    <input type=button onClick="location.href='/add-auto'" value='Add Auto'>
 </div>
 
 </body>
