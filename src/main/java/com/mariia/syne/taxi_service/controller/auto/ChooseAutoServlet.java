@@ -17,19 +17,18 @@ import java.util.List;
 public class ChooseAutoServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//
-//        AutoService autoService = new AutoServiceImpl();
-//
-//        List<Auto> activeAutos = autoService.findActiveAutos();
-//        request.setAttribute("activeAutos", activeAutos);
-//
-//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/auto/chooseAuto.jsp");
-//        requestDispatcher.forward(request, response);
-    }
 
+        AutoService autoService = new AutoServiceImpl();
+
+        List<Auto> activeAutos = autoService.findActiveAutos();
+        request.setAttribute("activeAutos", activeAutos);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/auto/chooseAuto.jsp");
+        requestDispatcher.forward(request, response);
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
 
 }

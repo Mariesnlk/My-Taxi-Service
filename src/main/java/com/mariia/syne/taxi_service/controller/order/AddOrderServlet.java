@@ -30,25 +30,27 @@ public class AddOrderServlet extends HttpServlet {
         String addressFrom = request.getParameter("addressFrom");
         String addressTo = request.getParameter("addressTo");
         int passengersNumber = Integer.parseInt(request.getParameter("passengersNumber"));
-        Integer passengersId = Integer.valueOf(request.getParameter("passengersId"));
+        Integer passengerId = Integer.valueOf(request.getParameter("passengerId"));
         Integer autoId = Integer.valueOf(request.getParameter("autoId"));
         double price = Double.parseDouble(request.getParameter("price"));
         double discount = Double.parseDouble(request.getParameter("discount"));
         int timeToWait = Integer.parseInt(request.getParameter("timeToWait"));
         //Date date = Date.valueOf(request.getParameter("date"));//?
-        String oldDate = request.getParameter("date");
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-        Date resultDate = null;
-        try {
-            resultDate = (Date) format.parse(oldDate);
-        } catch (ParseException e) {
-            Logger.getLogger(AddOrderServlet.class.getName()).log(Level.SEVERE, null, e);
-            System.out.println(e);
-        }
+//        String oldDate = request.getParameter("date");
+//        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+//        Date resultDate = null;
+//        try {
+//            resultDate = (Date) format.parse(oldDate);
+//        } catch (ParseException e) {
+//            Logger.getLogger(AddOrderServlet.class.getName()).log(Level.SEVERE, null, e);
+//            System.out.println(e);
+//        }
 
 
-        Order order = new Order(addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
-                discount, timeToWait, resultDate);
+//        Order order = new Order(addressFrom, addressTo, passengersNumber, passengersId, autoId, price,
+//                discount, timeToWait, resultDate);
+
+        Order order = new Order(addressFrom, addressTo, passengersNumber, passengerId, autoId, price, discount, timeToWait);
 
         OrderService orderService = new OrderServiceImpl();
         orderService.create(order);

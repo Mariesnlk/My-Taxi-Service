@@ -3,6 +3,8 @@ package com.mariia.syne.taxi_service.controller.user;
 import com.mariia.syne.taxi_service.model.User;
 import com.mariia.syne.taxi_service.service.impl.UserServiceImpl;
 import com.mariia.syne.taxi_service.service.interf.UserService;
+import com.mariia.syne.taxi_service.util.FieldsValidator;
+import com.sun.corba.se.impl.io.FVDCodeBaseImpl;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -34,7 +36,8 @@ public class AddUserServlet extends HttpServlet {
 
         User user = new User(firstName, lastName, login, password, role);
 
-        if (firstName.length() > 0 && lastName.length() > 0) {
+        if (firstName.length() > 0 && lastName.length() > 0 ) {
+        //if (firstName.length() > 0 && lastName.length() > 0 && FieldsValidator.isCorrectWord(firstName) && FieldsValidator.isCorrectWord(firstName)) {
             UserService userService = new UserServiceImpl();
             userService.create(user);
 

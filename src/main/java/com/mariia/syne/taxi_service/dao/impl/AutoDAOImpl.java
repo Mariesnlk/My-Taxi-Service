@@ -26,7 +26,7 @@ public class AutoDAOImpl implements AutoDAO {
             String category = auto.getCategory();
             String status = auto.getStatus();
 
-            String query = "INSERT INTO taxi_servise_db.auto(passangersCapacity, category, status) VALUES(?,?,?)";
+            String query = "INSERT INTO taxi_service_db.auto(passengersCapacity, category, status) VALUES(?,?,?)";
 
             ps = connection.prepareStatement(query);
 
@@ -74,7 +74,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             while (resultSet.next()) {
                 //int idOrder= resultSet.getInt("id");
-                int passengersCapacity = resultSet.getInt("passangersCapacity");
+                int passengersCapacity = resultSet.getInt("passengersCapacity");
                 String category = resultSet.getString("category");
                 String status = resultSet.getString("status");
 
@@ -115,7 +115,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             while (rs.next()) {
                 Integer idAuto = rs.getInt("id");
-                int passengersCapacity = rs.getInt("passangersCapacity");
+                int passengersCapacity = rs.getInt("passengersCapacity");
                 String category = rs.getString("category");
                 String status = rs.getString("status");
 
@@ -152,7 +152,7 @@ public class AutoDAOImpl implements AutoDAO {
             String newStatus = auto.getStatus();
 
             String query =
-                    "UPDATE auto SET passangersCapacity  = '" + newPassengersCapacity + "', category = '" + newCategory + "', " +
+                    "UPDATE auto SET passengersCapacity  = '" + newPassengersCapacity + "', category = '" + newCategory + "', " +
                             "status = '" + newStatus + "' WHERE id = ?";
 
             ps = connection.prepareStatement(query);
@@ -228,7 +228,7 @@ public class AutoDAOImpl implements AutoDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT * FROM auto ORDER BY passangersCapacity ASC";
+            String query = "SELECT * FROM auto ORDER BY passengersCapacity ASC";
             ps = connection.prepareStatement(query);
             LOG.debug("Executed query" + query);
 
@@ -236,7 +236,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             while (rs.next()) {
                 Integer idAuto = rs.getInt("id");
-                int passengersCapacity = rs.getInt("passangersCapacity");
+                int passengersCapacity = rs.getInt("passengersCapacity");
                 String category = rs.getString("category");
                 String status = rs.getString("status");
 
@@ -270,7 +270,7 @@ public class AutoDAOImpl implements AutoDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT * FROM auto ORDER BY passangersCapacity DESC";
+            String query = "SELECT * FROM auto ORDER BY passengersCapacity DESC";
             ps = connection.prepareStatement(query);
             LOG.debug("Executed query" + query);
 
@@ -278,7 +278,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             while (rs.next()) {
                 Integer idAuto = rs.getInt("id");
-                int passengersCapacity = rs.getInt("passangersCapacity");
+                int passengersCapacity = rs.getInt("passengersCapacity");
                 String category = rs.getString("category");
                 String status = rs.getString("status");
 
@@ -320,7 +320,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             while (rs.next()) {
                 Integer idAuto = rs.getInt("id");
-                int passengersCapacity = rs.getInt("passangersCapacity");
+                int passengersCapacity = rs.getInt("passengersCapacity");
                 String category = rs.getString("category");
                 String status = rs.getString("status");
 
@@ -362,7 +362,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             while (rs.next()) {
                 Integer idAuto = rs.getInt("id");
-                int passengersCapacity = rs.getInt("passangersCapacity");
+                int passengersCapacity = rs.getInt("passengersCapacity");
                 String category = rs.getString("category");
                 String status = rs.getString("status");
 
@@ -404,7 +404,7 @@ public class AutoDAOImpl implements AutoDAO {
 
             while (rs.next()) {
                 Integer idAuto = rs.getInt("id");
-                int passengersCapacity = rs.getInt("passangersCapacity");
+                int passengersCapacity = rs.getInt("passengersCapacity");
                 String category = rs.getString("category");
                 String status = rs.getString("status");
 
@@ -446,9 +446,52 @@ public class AutoDAOImpl implements AutoDAO {
 
             while (rs.next()) {
                 Integer idAuto = rs.getInt("id");
-                int passengersCapacity = rs.getInt("passangersCapacity");
+                int passengersCapacity = rs.getInt("passengersCapacity");
                 String category = rs.getString("category");
                 String status = rs.getString("status");
+
+                Auto auto = new Auto(idAuto, passengersCapacity, category, status);
+                autoList.add(auto);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in AutoDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return autoList;
+    }
+
+    @Override
+    public List<Auto> findByStatus(String status) {
+        List<Auto> autoList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM auto WHERE status =?";
+            ps = connection.prepareStatement(query);
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, status);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idAuto = rs.getInt("id");
+                int passengersCapacity = rs.getInt("passengersCapacity");
+                String category = rs.getString("category");
 
                 Auto auto = new Auto(idAuto, passengersCapacity, category, status);
                 autoList.add(auto);

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AutoDAO extends CRUDDAO<Auto, Integer>{
 
-    static final String STATUS_ACTIVE = "ACTIVE";
+    String STATUS_ACTIVE = "ACTIVE";
 
     List<Auto> sortCapacityIncrease();
 
@@ -19,5 +19,7 @@ public interface AutoDAO extends CRUDDAO<Auto, Integer>{
     List<Auto> sortStatusIncrease();
 
     List<Auto> sortStatusDecrease();
+
+    List<Auto> findByStatus(String status);
 
 }

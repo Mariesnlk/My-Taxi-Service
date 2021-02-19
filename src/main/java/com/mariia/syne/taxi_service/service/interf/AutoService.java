@@ -17,9 +17,7 @@ public interface AutoService extends CRUDService<Auto, Integer> {
     List<Auto> sortStatusIncrease();
 
     List<Auto> sortStatusDecrease();
-//
-//    List<Auto> findActiveAutos();
 
-
+    List<Auto> findActiveAutos();
 }
 

@@ -29,6 +29,17 @@ public class Order {
         this.date = date;
     }
 
+    public Order(String addressFrom, String addressTo, int passengersNumber, Integer passengersId, Integer autoId, double price, double discount, int timeToWait) {
+        this.addressFrom = addressFrom;
+        this.addressTo = addressTo;
+        this.passengersNumber = passengersNumber;
+        this.passengersId = passengersId;
+        this.autoId = autoId;
+        this.price = price;
+        this.discount = discount;
+        this.timeToWait = timeToWait;
+    }
+
     public Order(Integer id, String addressFrom, String addressTo, int passengersNumber,
                  Integer passengersId, Integer autoId, double price, double discount, int timeToWait, Date date) {
         this.id = id;

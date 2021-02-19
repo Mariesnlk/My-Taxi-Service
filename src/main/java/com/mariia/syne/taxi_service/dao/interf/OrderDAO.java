@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface OrderDAO extends CRUDDAO<Order, Integer>{
 
-    public List<Order> sortDateIncrease();
+    List<Order> sortDateIncrease();
 
-    public List<Order> sortDateDecrease();
+    List<Order> sortDateDecrease();
 
-    public List<Order> sortPriceIncrease();
+    List<Order> sortPriceIncrease();
 
-    public List<Order> sortPriceDecrease();
+    List<Order> sortPriceDecrease();
 
 }

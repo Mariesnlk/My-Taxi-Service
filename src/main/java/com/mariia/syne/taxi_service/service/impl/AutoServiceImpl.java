@@ -85,10 +85,10 @@ public class AutoServiceImpl implements AutoService {
         return allSortedAutos;
     }
 
-//    @Override
-//    public List<Auto> findActiveAutos() {
-//        AutoDAO autoDAO = new AutoDAOImpl();
-//        List<Auto> activeAutos = autoDAO.findStatusAuto();
-//        return activeAutos;
-//    }
+    @Override
+    public List<Auto> findActiveAutos() {
+        AutoDAO autoDAO = new AutoDAOImpl();
+        List<Auto> activeAutos = autoDAO.findByStatus(AutoDAO.STATUS_ACTIVE);
+        return activeAutos;
+    }
 }
