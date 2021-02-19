@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.mariia.syne.taxi_service.model.User" %>
+<%@ page import="com.mariia.syne.taxi_service.model.Auto" %><%--
   Created by IntelliJ IDEA.
   User: Марія
   Date: 13.02.2021
@@ -61,7 +62,7 @@
         text-align: left;
     }
 
-    .container-button{
+    .container-button {
         margin-top: 10px;
     }
 
@@ -72,10 +73,29 @@
             out.println("<p>User '" + request.getAttribute("lastName") + "' added!</p>");
         }
     %>--%>
+    <%
+        User registeredUser = (User) session.getAttribute("registeredUser");
+        Integer idUser = registeredUser.getId();
+
+        Auto chosenAuto = (Auto) session.getAttribute("chosenAuto");
+        String idAutoString = "no auto";
+        if (chosenAuto != null) {
+            Integer idAuto = chosenAuto.getId();
+            idAutoString = String.valueOf(idAuto);
+        }
+    %>
+
     <h1>Add order</h1>
 
     <div>
         <form action="/add-order" method="post">
+
+            <label>Passenger Id: </label>
+            <%--            <input type="text" name="passengersId"><br/>--%>
+            <%out.println(idUser);%><br/>
+            <label>Auto Id: </label> <%out.println(idAutoString);%>
+            <%--            <input type="text" name="autoId">--%>
+            <input class="button" type=button onClick="location.href='/choose-auto'" value='Choose auto'><br/>
             <label>Address From: </label>
             <select name="addressFrom">
                 <option value="Kyiv">Kyiv</option>
@@ -108,9 +128,8 @@
                 <option value="Chernihiv">Chernihiv</option>
                 <option value="Cherkasy">Cherkasy</option>
             </select>
-            <label>Passengers Number: </label><input type="text" name="passengersNumber" placeholder="Choose passengers number.."><br/>
-            <label>passenger Id: </label><input type="text" name="passengersId"><br/>
-            <label>auto Id: </label><input type="text" name="autoId"><br/>
+            <label>Passengers Number: </label><input type="text" name="passengersNumber"
+                                                     placeholder="Choose passengers number.."><br/>
             <label>Price: </label><input type="text" name="price"><br/>
             <label>Discount: </label><input type="text" name="discount" placeholder="Enter discount.."><br/>
             <label>Time To Wait: </label><input type="text" name="timeToWait"><br/>
@@ -121,7 +140,7 @@
 
 </div>
 
-<div  class="container-button">
+<div class="container-button">
     <input class="button" type=button onClick="location.href='../..'" value='Back to main page'>
 </div>
 

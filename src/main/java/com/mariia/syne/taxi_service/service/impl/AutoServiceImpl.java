@@ -84,4 +84,11 @@ public class AutoServiceImpl implements AutoService {
         List<Auto> allSortedAutos = autoDAO.sortStatusIncrease();
         return allSortedAutos;
     }
+
+//    @Override
+//    public List<Auto> findActiveAutos() {
+//        AutoDAO autoDAO = new AutoDAOImpl();
+//        List<Auto> activeAutos = autoDAO.findStatusAuto();
+//        return activeAutos;
+//    }
 }

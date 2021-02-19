@@ -1,0 +1,238 @@
+package com.mariia.syne.taxi_service.dao.impl;
+
+import com.mariia.syne.taxi_service.dao.interf.UserDAO;
+import com.mariia.syne.taxi_service.database.DBHelper;
+import com.mariia.syne.taxi_service.model.User;
+import org.apache.log4j.Logger;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserDAOImpl implements UserDAO {
+
+    private static final Logger LOG = Logger.getLogger(UserDAOImpl.class);
+
+    @Override
+    public void create(User user) {
+
+        DBHelper dbHelper = new DBHelper();
+        Connection connection = dbHelper.getConnection();
+
+        PreparedStatement ps = null;
+
+        try {
+            String firstName = user.getFirstName();
+            String lastName = user.getLastName();
+            String login = user.getLogin();
+            String password = user.getPassword();
+            String role = user.getRole();
+
+            String query = "INSERT INTO taxi_service_db.user(firstName, lastName, login, password, role) VALUES(?,?,?,?,?)";
+
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
+            ps.setString(3, login);
+            ps.setString(4, password);
+            ps.setString(5, role);
+
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //System.out.println(e);
+                }
+            }
+        }
+    }
+
+    @Override
+    public User findById(Integer idUser) {
+        User user = null;
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+
+        try {
+
+            String query = "SELECT * FROM user WHERE id = ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(idUser));
+
+            resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                String login = resultSet.getString("login");
+                String password = resultSet.getString("password");
+                String role = resultSet.getString("role");
+
+                user = new User(idUser, firstName, lastName, login, password, role);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return user;
+    }
+
+    @Override
+    public List<User> findAll() {
+        List<User> userList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM user";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idUser = rs.getInt("id");
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
+                String login = rs.getString("login");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+
+                User user = new User(idUser, firstName, lastName, login, password, role);
+                userList.add(user);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return userList;
+    }
+
+    @Override
+    public void update(User user) {
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        try {
+
+            Integer id = user.getId();
+            String newFirstName = user.getFirstName();
+            String newLastName = user.getLastName();
+            String newLogin = user.getLogin();
+            String newPassword = user.getPassword();
+            String newRole = user.getRole();
+
+            String query =
+                    "UPDATE user SET firstName  = '" + newFirstName + "', lastName = '" + newLastName + "', " +
+                            "login = '" + newLogin + "', " + "password = '" + newPassword + "'," + "role = '" + newRole +
+                            "' WHERE id = ?";
+
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setInt(1, id);
+
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean delete(User user) {
+        boolean result = false;
+        int changedRowsNumber = 0;
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        try {
+            Integer id = user.getId();
+
+            String query = "DELETE FROM user WHERE id = ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setInt(1, id);
+
+            //System.out.println(ps);
+            changedRowsNumber = ps.executeUpdate();
+            System.out.println("changedRowsNumber=" + changedRowsNumber);
+            if (changedRowsNumber > 0) {
+                result = true;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+            result = false;
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return result;
+    }
+}
