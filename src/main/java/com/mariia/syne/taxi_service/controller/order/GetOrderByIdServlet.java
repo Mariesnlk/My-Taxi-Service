@@ -1,10 +1,7 @@
 package com.mariia.syne.taxi_service.controller.order;
 
-import com.mariia.syne.taxi_service.model.Auto;
 import com.mariia.syne.taxi_service.model.Order;
-import com.mariia.syne.taxi_service.service.impl.AutoServiceImpl;
 import com.mariia.syne.taxi_service.service.impl.OrderServiceImpl;
-import com.mariia.syne.taxi_service.service.interf.AutoService;
 import com.mariia.syne.taxi_service.service.interf.OrderService;
 
 import javax.servlet.RequestDispatcher;

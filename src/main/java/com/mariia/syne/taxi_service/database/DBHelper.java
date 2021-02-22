@@ -7,7 +7,6 @@ public class DBHelper {
 
     private final String DRIVER_NAME = "com.mysql.jdbc.Driver";
 
-    //url: 3306 - standard port for MySQL, aviacompany_db - name of the DB.
     private final String URL = "jdbc:mysql://localhost:3306/taxi_servise_db?autoReconnect=true&useSSL=false";
     private final String USERNAME = "root";
     private final String PASSWORD = "root";

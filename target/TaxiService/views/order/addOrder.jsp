@@ -152,17 +152,21 @@
             <label>Data (dd-MM-yyyy): </label><input type="text" name="date"><br/>
             <button class="button" type="submit">Submit</button>
 
-            <%--            <%--%>
-            <%--                out.println("<input type=\"text\" name=\"passengerId\" value=\"" + idUser + "\" hidden>");--%>
-            <%--            %>--%>
 
-            <%--            <%--%>
-            <%--                out.println("<input type=\"text\" name=\"autoId\" value=\"" + idAuto + "\" hidden>");--%>
-            <%--            %>--%>
+            <input type="text" name="passengerId" value="${idUser}" hidden>
+            <input type="text" name="autoId" value="${idAuto}" hidden>
 
+<%--            <input type="text" name="passengerId" value="${idUser}">--%>
+<%--            <input type="text" name="autoId" value="${idAuto}">--%>
 
-            <%--<%request.setAttribute("passengerId",idUser);%><br/>
-            <%request.setAttribute("autoId",idAuto);%><br/>--%>
+<%--            <%--%>
+<%--                out.println("<input type=\"text\" name=\"passengerId\" value=\"" + idUser + "\" hidden>");--%>
+<%--            %>--%>
+
+<%--            <%--%>
+<%--                out.println("<input type=\"text\" name=\"autoId\" value=\"" + idAuto + "\" hidden>");--%>
+<%--            %>--%>
+
         </form>
     </div>
 
