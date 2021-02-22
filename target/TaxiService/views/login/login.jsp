@@ -43,6 +43,12 @@
         box-sizing: border-box;
     }
 
+    div{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
     .button, .container.button {
         border: 0;
         line-height: 2.5;

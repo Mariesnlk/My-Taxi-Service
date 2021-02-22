@@ -10,15 +10,6 @@
 <html>
 <head>
     <title>Update Order</title>
-    <%--<style>
-        body {
-            background-image: url("images/airplane.jpg");
-        }
-
-        .no-background {
-            background-image: url("images/blank.jpg");
-        }
-    </style>--%>
 </head>
 
 <body>

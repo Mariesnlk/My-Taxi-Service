@@ -23,6 +23,12 @@
         text-align: center;
         color: rgba(220, 0, 0, 1);;
     }
+    div{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
 
     input.button {
         border: 0;
@@ -49,24 +55,29 @@
     <%
         User registeredUser = (User) session.getAttribute("registeredUser");
 
-        if (registeredUser != null ) {
+        if (registeredUser != null) {
             out.println("<h1>You have successfully log in!</h1>");
 //            out.println(registeredUser);
 //            out.println("userRole="+registeredUser.getRole());
     %>
 
-    <br>
-    <input class="button" type=button onClick="location.href='/logout'" value='Logout'>
-    <input class="button" type=button onClick="location.href='../..'" value='Back to main page'>
+    <div>
+        <input class="button" type=button onClick="location.href='/logout'" value='Logout'>
+    </div>
+    <div>
+        <input class="button" type=button onClick="location.href='../..'" value='Back to main page'>
+    </div>
     <%
-    }
-
-    else {
+    } else {
         out.println("<h1>Error! Try one more time!</h1>");
 
     %>
-    <input class="button" type=button onClick="location.href='/login'" value='Login'>
-    <input class="button" type=button onClick="location.href='../..'" value='Back to main page'>
+    <div>
+        <input class="button" type=button onClick="location.href='/login'" value='Login'>
+    </div>
+    <div>
+        <input class="button" type=button onClick="location.href='../..'" value='Back to main page'>
+    </div>
     <%
         }
     %>
