@@ -24,7 +24,8 @@
         color: rgba(220, 0, 0, 1);;
     }
 
-    input[type=text], select {
+    /*input[type=text], */
+    select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -153,19 +154,19 @@
             <button class="button" type="submit">Submit</button>
 
 
-            <input type="text" name="passengerId" value="${idUser}" hidden>
-            <input type="text" name="autoId" value="${idAuto}" hidden>
+<%--            <input type="text" name="passengerId" value="${idUser}" hidden>--%>
+<%--            <input type="text" name="autoId" value="${idAuto}" hidden>--%>
 
 <%--            <input type="text" name="passengerId" value="${idUser}">--%>
 <%--            <input type="text" name="autoId" value="${idAuto}">--%>
 
-<%--            <%--%>
-<%--                out.println("<input type=\"text\" name=\"passengerId\" value=\"" + idUser + "\" hidden>");--%>
-<%--            %>--%>
+            <%
+                out.println("<input type=\"text\" name=\"passengerId\" value=\"" + idUser + "\" hidden>");
+            %>
 
-<%--            <%--%>
-<%--                out.println("<input type=\"text\" name=\"autoId\" value=\"" + idAuto + "\" hidden>");--%>
-<%--            %>--%>
+            <%
+                out.println("<input type=\"text\" name=\"autoId\" value=\"" + idAuto + "\" hidden>");
+            %>
 
         </form>
     </div>
