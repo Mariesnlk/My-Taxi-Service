@@ -50,6 +50,7 @@
         border-radius: 5px;
         background-color: #f2f2f2;
         padding: 20px;
+        margin-bottom: 10px;
     }
 
     input[type=submit], .button {
@@ -74,7 +75,8 @@
         text-align: left;
     }
 
-    .container-button {
+    #container-button {
+        text-align: center;
         margin-top: 10px;
     }
 
@@ -132,8 +134,9 @@
     </div>
 </div>
 
-<input class="button" type=button onClick="location.href='/autos'" value='All Autos Table'>
-
+<div id="container-button">
+    <input class="button" type=button onClick="location.href='/autos'" value='All Autos Table'>
+</div>
 </body>
 </html>
 
