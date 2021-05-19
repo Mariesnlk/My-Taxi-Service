@@ -1,4 +1,4 @@
-# My-Taxi-Service
+# Taxi Service on servlets
 
 ## Description
 ### Taxi Service System. 
